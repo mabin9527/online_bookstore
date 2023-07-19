@@ -3,6 +3,8 @@ html {
 }
 
 body {
+    background: url('/static/images/home.jpg') no-repeat center center fixed;
+    background-size: cover;
     height: calc(100vh - 164px);
     color: black;
     font-family: 'Lato', sans-serif;
@@ -28,6 +30,25 @@ a {
 
 .main-logo-link {
     width: fit-content;
+}
+
+.shop-now-button {
+    background: #000;
+    color: #fff;
+    min-width: 260px;
+    --c: lightseagreen;
+    text-shadow: 0 0 10px var(--c),
+    0 0 20px var(--c),
+    0 0 40px var(--c),
+    0 0 80px var(--c),
+    0 0 160px var(--c);
+    animation: animate 5s linear infinite;
+}
+
+@keyframes animate{
+    to {
+        filter: hue-rotate(360deg);
+    }
 }
 
 .btn-black {
