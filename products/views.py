@@ -1,3 +1,18 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+from django.shortcuts import render
+from .models import Product, Category
+
+def products(request):
+    """
+    A view to show the main page of bookstore, including book categorys,
+    products and search queries
+    """
+    categorys = Category.objects.all()
+    books = Product.objects.filter().all()
+    context = {
+        'categorys': categorys,
+        'books': books
+    }
+    return render(request, 'products/products.html', context)

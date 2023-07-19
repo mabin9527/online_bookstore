@@ -5,6 +5,9 @@ class Category(models.Model):
     cid = models.AutoField(primary_key=True)
     name = models.CharField(max_length=254)
 
+    class Meta:
+        verbose_name_plural = 'Categories'
+
 
 class Product(models.Model):
     db_table = 'bookstore_product'
