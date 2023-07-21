@@ -27,7 +27,8 @@ SECRET_KEY = 'django-insecure-xs@fvlc^t*r+@7t*2my=+v4#=j!91ti&3(2kg)^ny5c5y)f^5v
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-mabin9527-onlinebooksto-tp5stxvun6i.ws-eu101.gitpod.io'
+    '8000-mabin9527-onlinebooksto-tp5stxvun6i.ws-eu101.gitpod.io',
+    '8000-mabin9527-onlinebooksto-tp5stxvun6i.ws-eu102.gitpod.io',
     ]
 
 
