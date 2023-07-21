@@ -1,0 +1,37 @@
+[{
+    "pk": 1,
+    "model": "products.category",
+    "fields": {
+        "name": "computer",
+        "friendly_name": "Computer"
+    }
+}, {
+    "pk": 2,
+    "model": "products.category",
+    "fields": {
+        "name": "art",
+        "friendly_name": "Art"
+    }
+}, {
+    "pk": 3,
+    "model": "products.category",
+    "fields": {
+        "name": "fiction",
+        "friendly_name": "Fiction"
+    }
+}, {
+    "pk": 4,
+    "model": "products.category",
+    "fields": {
+        "name": "children's",
+        "friendly_name": "Children's"
+    }
+}, {
+    "pk": 5,
+    "model": "products.category",
+    "fields": {
+        "name": "teen",
+        "friendly_name": "Teen"
+    }
+}
+]

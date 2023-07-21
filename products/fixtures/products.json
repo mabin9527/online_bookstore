@@ -1,0 +1,242 @@
+[
+    {
+       "pk":1,
+       "model":"products.product",
+       "fields":{
+          "name":"Computer Science",
+          "author": "Ann Weidmann",
+          "description":"The Pearson Edexcel GCSE (9-1) Computer Science Student Book is aligned to the 2020 specification, bringing Computer Science to life with real-world examples, and providing support for the new practical on-screen assessment. The Pearson Edexcel GCSE (9-1) Computer Science 2020 Student Book offers:   plenty of practical activities for programming that follow the PRIMM pedagogy real world examples and case studies of Computer Science in Action to help make the content relevant and inspiring to students worked examples and activities using the PLS or 'Programming Language Subset' (Python) for a simple and comprehensive approach to programming simplified content to make it as accessible as possible.   This Student Book also helps students with concise and productive exam preparation. This includes: exam questions at the end of every section to consolidate knowledge extensive Preparing for the exam material, including student answers and examiner commentary, plus example exam questions using only the Pearson Edexcel command words data files to support the on-screen assessment, which can be found in the interactive scheme of work.",
+          "price":36.99,
+          "category":1,
+          "image":"products/product-computer-science-01.jpg"
+       }
+    },
+    {
+       "pk":2,
+       "model":"products.product",
+       "fields":{
+          "name":"Computer",
+          "author": "Martin Campbell-Kelly",
+          "description":"This volume provides a history of the computer which now comes properly up to the ubiquitous age, with new chapters that look at globalization, platformitization and regulation, allowing readers to engage with the more recent takeover by computers in their historical perspective. With the growing ubiquity of computers, the subject is one of interest to many students and this will feature in history of science and technology courses, and world history courses as well as ones specifically on computing. Books on the history of computing tend to be quite technically or business focused, this covers the social and cultural history as well.  ",
+          "price":46.19,
+          "category":1,
+          "image":"products/product-computer-science-02.jpg"
+       }
+    },
+    {
+       "pk":3,
+       "model":"products.product",
+       "fields":{
+          "name":"Computer Science",
+          "author": "J. Glenn Brookshear",
+          "description":"Develop a core understanding of the concepts of modern computer science Computer Science: An Overview, 13th edition, Global Edition, by J. Glenn Brookshear, and Dennis Brylow, is written for students from all backgrounds, giving you a bottom-up, concrete-to-abstract foundation in the subject. Its broad coverage encourages a practical and realistic understanding of computer science, covering all the major concepts. The book's broad background exposes beginning computer science students to the breadth of the subject they plan to major in and teaches students from other backgrounds how to relate to the technical society in which they live. Learn in a flexible way with independent chapters you can study in any order with full-colour design to help you engage with the information. The text also uses Python to provide programming tools for exploration and experimentation in your learning. This 13th edition has been corrected and updated in each chapter to refine your learning experience. With more than 1,000 questions and exercises, the book trains your thinking skills with useful chapter review problems and contains questions surrounding social issues to reinforce core concepts. This text is comprehensive and highly accessible, making it ideal for undergraduate studies in computer science. This title has a Companion Website.",
+          "price":97.99,
+          "category":1,
+          "image":"products/product-computer-science-03.jpeg"
+       }
+    },
+    {
+       "pk":4,
+       "model":"products.product",
+       "fields":{
+          "name":"Learning Python",
+          "author": "Mark Lutz",
+          "description":"Get a comprehensive, in-depth introduction to the core Python language with this hands-on book. Based on author Mark Lutz's popular training course, this updated fifth edition will help you quickly write efficient, high-quality code with Python. It's an ideal way to begin, whether you're new to programming or a professional developer versed in other languages. Complete with quizzes, exercises, and helpful illustrations, this easy-to-follow, self-paced tutorial gets you started with both Python 2.7 and 3.3- the latest releases in the 3.X and 2.X lines-plus all other releases in common use today. You'll also learn some advanced language features that recently have become more common in Python code. Explore Python's major built-in object types such as numbers, lists, and dictionaries Create and process objects with Python statements, and learn Python's general syntax model Use functions to avoid code redundancy and package code for reuse Organize statements, functions, and other tools into larger components with modules Dive into classes: Python's object-oriented programming tool for structuring code Write large programs with Python's exception-handling model and development tools Learn advanced Python tools, including decorators, descriptors, metaclasses, and Unicode processing.",
+          "price":83.99,
+          "category":1,
+          "image":"products/product-computer-science-04.jpg"
+       }
+    },
+    {
+       "pk":5,
+       "model":"products.product",
+       "fields":{
+          "name":"Art",
+          "author": "Robert Cumming",
+          "description":"'Art is not what you see, but what you make others see.' Edgar Degas Covering every era and over 650 artists, this comprehensive, illustrated guide offers an accessible yet expansive view of art history, featuring everything from iconic works and lesser-known gems to techniques and themes. Offering a comprehensive overview of Western artists, themes, paintings, techniques, and stories, Art: A Visual History is packed full of large, full-colour images of iconic works and lesser-known gems. Exploring every era, from 30,000BCE to the present, it includes features on the major schools and movements, as well as close-up critical appraisals of 22 masterpieces - from Botticelli's Primavera to J. M. W. Turner's The Fighting Temeraire . With detailed referencing, crisp reproductions and a fresh design, this beautiful book is a must-have for anyone with an interest in art history - from first-time gallery goers to knowledgeable art enthusiasts. What makes great art? Discover the answer now, with Art: A Visual History .",
+          "price":28.99,
+          "category":2,
+          "image":"products/product-art-01.jpg"
+       }
+    },
+    {
+       "pk":6,
+       "model":"products.product",
+       "fields":{
+          "name":"Irish Art, 1920-2020",
+          "author": "Catherine Marshall",
+          "description":"Irish Art 1920-2020: Perspectives on change by Catherine Marshall and Yvonne Scott, is a generously-illustrated book in which eleven authors examine different aspects of Irish art through the hundred years or so since independence. During this time, art in Ireland has borne witness to unprecedented social and political transformation, and this book of essays considers how some of the established perspectives in Irish visual culture were challenged and represented during this time. Art in Ireland has been shaped by a range of factors - the country's geographic position, post-colonial history, political upheaval, religious environment - and of course the complex interconnections both within and beyond the country, prompted by shifting patterns within society - identities, migration, technology, for example - as well as the artists' evolving engagement with the wider world. This is not a linear story; each chapter explores a particular aspect of art, how it reflected the interests of artists, the environments in which they worked both in Ireland and abroad, and how subjects and methods changed over time. The extensive richness of the last century or so, as well as the diversity, creativity and originality of the artists means that no single text can ever be comprehensive, and this one makes no such claims. Rather, his book, however, is a kind of map; it does not pretend to fully represent the entire narrative but may provide some useful clues to negotiating parts of it,or at least the basis for further exploration and debate.",
+          "price":38.00,
+          "category":2,
+          "image":"products/product-art-02.jpg"
+       }
+    },
+    {
+       "pk":7,
+       "model":"products.product",
+       "fields":{
+          "name":"Manga Fashion Art Secrets",
+          "author": "Dalia Sharawna",
+          "description":"Learn how to draw fashionable manga clothes that help to convey personality, character, and mood quickly and easily. Packed with everything you need to know to draw a huge variety of cool clothes and accessories in the manga style, this detailed guide covers a range of styles and looks, so that you can build character identity, customise your characters and tell a story through fashion. Create a wide range of looks, from on-trend streetwear to traditional and formal clothing. With clear step-by-step instructions and insider secrets that manga artist Dalia Sharawna has learned on her drawing journey, all you'll need is a pencil and paper to draw any clothing style you desire.",
+          "price":18.20,
+          "category":2,
+          "image":"products/product-art-03.jpg"
+       }
+    },
+    {
+       "pk":8,
+       "model":"products.product",
+       "fields":{
+          "name":"Botanical Art to Cut Out and Collage",
+          "author": "Royal Botanic Gardens, Kew",
+          "description":"Over 500 high-quality botanical art images from the Royal Botanic Gardens Kew archives - one of the world's largest libraries of botanical art.Printed on one side only with simple patterned verso, so that all 500+ images can be used, plus ideas for how to use the images in your creative projects.A rich resource for journaling, scrapbooking, card-making, gift-wrapping, vision-boarding, collage, mixed media art and more!",
+          "price":23.79,
+          "category":2,
+          "image":"products/product-art-04.jpg"
+       }
+    },
+    {
+       "pk":9,
+       "model":"products.product",
+       "fields":{
+          "name":"The Girl from Donegal",
+          "author": "Carmel Harrington",
+          "description":"Can you ever forget your first love? Donegal, Ireland, 1939 As the world teeters on the brink of WWII, Eliza Lavery is alone in the world after her fiancé, Davey, was lost following the Irish War of Independence. But a fateful meeting on the wild beauty of Ballymastocker Bay could change everything. Hamilton, Bermuda, 2022 Eight decades later, troubled by her future, Saoirse O'Donnell walks on the pink sands of Bermuda's Horseshoe Bay. When she uncovers a connection to Eliza, all those years before, she hears a story that promises to influence her own heart and her own choice - but that also reveals a long-buried secret. Two women must each make a choice between their past and their present in this sweeping, epic love story spanning two continents, three generations, and joy and tragedy over nearly a century. Praise for The Girl from Donegal 'A timeless love story, beautifully told across eighty years and two continents . . . Carmel takes us on an emotional rollercoaster' HAZEL GAYNOR '[The] characters are unforgettable and drawn with real heart - you're rooting for them from the get-go and with them all the way' CATHERINE RYAN HOWARD 'A terrific read with fabulous historical detail and great characters. Thoroughly engrossing' SHEILA O'FLANAGAN 'A beautifully told international saga encompassing war and tragedy, life-changing decisions and love in its many facets' ROISIN MEANEY 'One of the best books of the year . . . it's Carmel's best book yet . . . I lost whole days of my life to this beautiful, sweeping story and I can confidently predict that readers everywhere will too' CLAUDIA CARROLL",
+          "price":12.99,
+          "category":3,
+          "image":"products/product-fiction-01.jpg"
+       }
+    },
+    {
+       "pk":10,
+       "model":"products.product",
+       "fields":{
+          "name":"The Magician",
+          "author": "Colm Tóibín",
+          "description":"THE SUNDAY TIMES TOP TEN BESTSELLER WINNER OF THE RATHBONES FOLIO PRIZE 2022 SHORTLISTED FOR THE WALTER SCOTT PRIZE FOR HISTORICAL FICTION 2022 From one of our greatest living writers comes a sweeping novel of unrequited love and exile, war and family. The Magician tells the story of Thomas Mann, whose life was filled with great acclaim and contradiction. He would find himself on the wrong side of history in the First World War, cheerleading the German army, but have a clear vision of the future in the second, anticipating the horrors of Nazism. He would have six children and keep his homosexuality hidden; he was a man forever connected to his family and yet bore witness to the ravages of suicide. He would write some of the greatest works of European literature, and win the Nobel Prize, but would never return to the country that inspired his creativity. Through one life, Colm Tóibìn tells the breathtaking story of the twentieth century.",
+          "price":11.99,
+          "category":3,
+          "image":"products/product-fiction-02.jpg"
+       }
+    },
+    {
+       "pk":11,
+       "model":"products.product",
+       "fields":{
+          "name":"Icebreaker",
+          "author": "Hannah Grace",
+          "description":"Sparks fly when a competitive figure skater and hockey team captain are forced to share a rink.   Anastasia Allen has worked her entire life for a shot at Team USA. It looks like everything is going according to plan when she gets a full scholarship to the University of California, Maple Hills and lands a place on their competitive figure skating team.   Nothing will stand in her way, not even the captain of the hockey team, Nate Hawkins. &nbsp; Nate's focus as team captain is on keeping his team on the ice. Which is tricky when a facilities mishap means they are forced to share a rink with the figure skating team-including Anastasia, who clearly can't stand him.    But when Anastasia's skating partner faces an uncertain future, she may have to look to Nate to take her shot.  Sparks fly, but Anastasia isn't worried. because she could never like a hockey player, right?",
+          "price":8.99,
+          "category":3,
+          "image":"products/product-fiction-03.jpg"
+       }
+    },
+    {
+       "pk":12,
+       "model":"products.product",
+       "fields":{
+          "name":"Midnight",
+          "author": "Amy McCulloch",
+          "description":"Combines an intricate murder mystery with lyrical passages describing ice cliffs and spectacular skies' SUNDAY TIMES 'Chillingly atmospheric, with sub-zero tension and a creeping plot that makes it impossible to look away' JANICE HALLETT 'A chilling, atmospheric rollercoaster of a read filled with clever unpredictable twists' CLAIRE DOUGLAS 'Transportive, absorbing and perfectly paced. You won't want to miss it!'",
+          "price":17.99,
+          "category":3,
+          "image":"products/product-fiction-04.jpg"
+       }
+    },
+    {
+       "pk":13,
+       "model":"products.product",
+       "fields":{
+          "name":"Bedtime Stories",
+          "author": "Emily Mason",
+          "description":"A beautiful, celebratory and joyful book of bedtime stories. Written and illustrated by Irish creators, Bedtime Stories showcases a curated collection of tales from Irish history, based on important figures and events. Each story is the ideal length to read at bedtime as well as any moment when young readers are looking for an inspirational read! Features one young reader's winning entry from a Children's Books Ireland competition  A beautiful and celebratory gift for all ages Perfect for any child wanting to learn more about history's untold stories A wonderful keepsake book - a gift for a lifetime.",
+          "price":23.80,
+          "category":4,
+          "image":"products/product-children's-01.jpg"
+       }
+    },
+    {
+       "pk":14,
+       "model":"products.product",
+       "fields":{
+          "name":"Emerald and The Ocean Parade H/B",
+          "author": "Harriet Muncaster",
+          "description":"From the creator of Isadora Moon comes an enchanting new series set in the same world focusing on Emerald, a reluctant mermaid princess who must learn to do things her own way. Emerald is learning how to be a mermaid princess, but she doesn’t feel like one at all. She’s not very good at waving to crowds and royal headdresses just aren’t her thing – her hair is too spiky and wild. Emerald’s wriggly pet octopus, Inkibelle, doesn’t much like living at the royal palace either.The annual Ocean Parade is coming up. Will Emerald be brave enough to be a mermaid princess but do it her own, special way?",
+          "price":10.99,
+          "category":4,
+          "image":"products/product-children's-02.jpg"
+       }
+    },
+    {
+       "pk":15,
+       "model":"products.product",
+       "fields":{
+          "name":"Percy Jackson and The Sea of Monsters",
+          "author": "Rick Riordan",
+          "description":"Poseidon, God of the Sea is my dad. Which sounds cool, but actually means there is usually someone (or something ), somewhere, trying to kill me. Now I live at Camp Half-Blood, with other kids like me. But Camp Half-Blood is a bit different to most summer camps. Instead of toasting marshmallows and singing campfire songs, we battle giant cannibals at dodgeball. This time, we're under attack, and I need to get my hands on the Golden Fleece or we'll be invaded by monsters.",
+          "price":8.96,
+          "category":4,
+          "image":"products/product-children's-03.jpg"
+       }
+    },
+    {
+       "pk":16,
+       "model":"products.product",
+       "fields":{
+          "name":"Six of Crows",
+          "author": "Leigh Bardugo",
+          "description":"Criminal prodigy Kaz Brekker is offered a chance at a deadly heist that could make him rich beyond his wildest dreams - but he can't pull it off alone. A convict with a thirst for revenge. A sharpshooter who can't walk away from a wager. A runaway with a privileged past. A spy known as the Wraith. A Heartrender using her magic to survive the slums. A thief with a gift for unlikely escapes. Six dangerous outcasts. One impossible heist. Kaz's crew is the only thing that might stand between the world and destruction - if they don't kill each other first.",
+          "price":8.99,
+          "category":4,
+          "image":"products/product-children's-04.jpg"
+       }
+    },
+    {
+       "pk":17,
+       "model":"products.product",
+       "fields":{
+          "name":"The Library of Broken Worlds",
+          "author": "Alaya Dawn Johnson",
+          "description":"A girl matches wits with a war god in this kaleidoscopic, epic tale of oppression and the cost of peace, where stories hide within other stories, and narrative has the power to heal. or to burn everything in its path. In the winding underground tunnels of the Library, the great celestial peacekeeper of the three systems, a terrible secret lies buried. As the daughter of a Library god, Freida has spent her whole life exploring the Library's ever-changing tunnels and communing with the gods. Her unparalleled access makes her unique - and dangerous. When Freida meets Joshua, a mortal boy desperate to save his people, and Nergüi, a Disciple from a persecuted religious minority, Freida is compelled to break ranks with the gods and help them. But in order to do so, she will have to venture deeper into the Library than she has ever known. There she will discover the atrocities of the past, the truth of her origins, and the impossibility of her future. With the world at the brink of war, Freida embarks on a journey to fulfill her destiny, one that pits her against an ancient war god. Her mission is straightforward: Destroy the god before he can rain hellfire upon thousands of innocent lives - if he doesn't destroy her first. A sparkling, thought-provoking new offering from World Fantasy Award-winning author Alaya Dawn Johnson.",
+          "price":15.68,
+          "category":5,
+          "image":"products/product-teen-01.jpg"
+       }
+    },
+    {
+       "pk":18,
+       "model":"products.product",
+       "fields":{
+          "name":"The Brothers Hawthorne TPB",
+          "author": "Jennifer Lynn Barnes",
+          "description":"Grayson Hawthorne was raised as the heir apparent to his billionaire grandfather, taught from the cradle to put family first. Now the great Tobias Hawthorne is dead and his family disinherited, but some lessons linger. When Grayson’s half-sisters find themselves in trouble, he swoops in to do what he does best: take care of the problem – efficiently, effectively, mercilessly. And without getting bogged down in emotional entanglements.Jameson Hawthorne is a risk-taker, a sensation-seeker, a player of games. When his mysterious father appears and asks for a favor, Jameson can’t resist the challenge. Now he must infiltrate London’s most exclusive underground gambling club, which caters to the rich, the powerful, and the aristocratic, and win an impossible game of greatest stakes. Luckily, Jameson Hawthorne lives for impossible.   Drawn into twisted games on opposite sides of the globe, Grayson and Jameson – with the help of their brothers and the girl who inherited their grandfather’s fortune – must dig deep to decide who they want to be and what each of them will sacrifice to win.",
+          "price":13.99,
+          "category":5,
+          "image":"products/product-teen-02.jpg"
+       }
+    },
+    {
+       "pk":19,
+       "model":"products.product",
+       "fields":{
+          "name":"Island of Whispers",
+          "author": "Frances Hardinge",
+          "description":"The award-winning, bestselling Frances Hardinge and Emily Gravett unite for the first time to conjure up a thrilling fairy tale of ghosts and magic, highly illustrated throughout with a luscious blue ink. On the island of Merlank, the Dead must not be allowed to linger. The very sight of their ghosts can kill you. When young Milo is thrust into the role of Ferryman following his father's sudden death, he is the one who must carry away the Dead. Pursued by a vengeful lord and two malignant magicians, Milo must navigate strange and perilous seas where untold threats whisper in the mist. Does he have the courage and imagination to complete his urgent mission? From the Costa Book Award-winning Frances Hardinge, author of The Lie Tree and Unraveller , with spectacular illustrations from double Kate Greenaway Medal winner Emily Gravett, this riveting coming-of-age tale will sweep you away on an unforgettable journey. Island of Whispers is a beautiful hardback glittering all over with shining silver moths, making the most exquisite gift for anybody who loves mysterious fantasy worlds, and for fans of Neil Gaiman and Kiran Millwood Hargrave.",
+          "price":21.00,
+          "category":5,
+          "image":"products/product-teen-03.jpg"
+       }
+    },
+    {
+       "pk":20,
+       "model":"products.product",
+       "fields":{
+          "name":"Murtagh TPB",
+          "author": "Paolini Christopher",
+          "description":"Murtagh is a stand-alone novel that picks up one year after the events of the Inheritance Cycle and builds on the story of the original series. Murtagh is one of Paolini’s most popular characters from The World of Eragon series, and this latest novel gives him a story of his own. The world is no longer safe for the Dragon Rider Murtagh and his dragon, Thorn. An evil king has been toppled, and they are left to face the consequences of the reluctant role they played in his reign of terror. Now they are hated and alone, exiled to the outskirts of society. But when Murtagh PRESS RELEASE discovers something wicked lurking in the shadows of Alagaësia, so begins an epic journey into lands both familiar and untravelled, where he and Thorn must use every weapon in their arsenal, from brains to brawn, to find and outwit a mysterious witch. A witch who is much more than she seems...",
+          "price":15.99,
+          "category":5,
+          "image":"products/product-teen-04.jpg"
+       }
+    }
+]
