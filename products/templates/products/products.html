@@ -49,42 +49,33 @@
             </div>
         </div>
     </div>
+
+    {% for category in categorys %}
     <div class="container mt-4">
         <div class="list-model">
             <div class="list-title">
-                <h4><a href="#" class="nav-link">Computer Science</a></h4>
+                <h4 id="{{ category.cid }}">{{ category.friendly_name }}</h4>
             </div>
-            <div class="row">
-                <div class="col-2">
-                <h6 class="text-center"><a href="#" class="nav-link">Python</a></h6>
-                <a href="#"><img src="{% static '/images/python.jpg'%}" alt="" class="img-fluid"></a>
-                <div class="price text-center"> $5.99 </div>
-                </div>
-                <div class="col-2">
-                <h6 class="text-center"><a href="#" class="nav-link">Python</a></h6>
-                <a href="#"><img src="{% static '/images/python.jpg'%}" alt="" class="img-fluid"></a>
-                <div class="price text-center"> $5.99 </div>
-                </div>
-            </div>
-            <div class="list-title mt-2">
-                <h4><a href="#" class="nav-link">Art</a></h4>
-            </div>
-            <div class="row">
-                <div class="col-2">
-                <h6 class="text-center"><a href="#" class="nav-link">Art Design</a></h6>
-                <a href="#"><img src="{% static '/images/art.jpg'%}" alt="" class="img-fluid"></a>
-                <div class="price text-center"> $6.99 </div>
-                </div>
-                <div class="col-2">
-                <h6 class="text-center"><a href="#" class="nav-link">Art Design</a></h6>
-                <a href="#"><img src="{% static '/images/art.jpg'%}" alt="" class="img-fluid"></a>
-                <div class="price text-center"> $6.99 </div>
-                </div>
-            </div>
+            <ul class="list-group list-group-horizontal-md mt-2">
+                {% for book in books %}
+                    {% if book.category_id == category.cid %}
+                    <li class="list-group-item border-0 col-md-3">
+                        <h6 class="text-center"><a href="#" class="nav-link">{{ book.name }}</a></h6>
+                        <div class="embed-responsive embed-responsive-1by1">
+                            <a href="#">
+                                <img src="{{ book.image.url }}" alt="" class="embed-responsive-item">
+                            </a>
+                        </div>
+                        <div class="price text-center"> $ {{ book.price }} </div>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
         </div>
     </div>
+    {% endfor %}
+
     <div class="payment-options text-center mt-4">
         <img src="{% static '/images/payment-icons.webp'%}" class="img-responsive">
     </div>
-
 {% endblock %}

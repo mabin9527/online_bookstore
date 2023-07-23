@@ -13,6 +13,10 @@ a {
     color: black;
 }
 
+li {
+    list-style-type: none;
+}
+
 /* From Bulma */
 .icon {
     align-items: center;
