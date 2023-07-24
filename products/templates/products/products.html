@@ -59,7 +59,7 @@
             <ul class="list-group list-group-horizontal-sm row row-cols-sm-2 row-cols-md-4">
                 {% for book in books %}
                     {% if book.category_id == category.cid %}
-                    <li class="card border-0">
+                    <li class="card border-0 d-flex flex-column justify-content-between">
                         <h6 class="text-center"><a href="#" class="nav-link">{{ book.name }}</a></h6>
                         <a href="#" class="d-block d-flex justify-content-center align-items-center">
                             <img src="{{ book.image.url }}" class="img-thumbnail">
