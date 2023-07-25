@@ -63,7 +63,7 @@
                     <li class="card border-0 d-flex flex-column justify-content-between">
                         <h6 class="text-center"><a href="{% url 'product_detail' %}?pid={{ book.pid }}" class="nav-link">{{ book.name }}</a></h6>
                         <a href="{% url 'product_detail' %}?pid={{ book.pid }}" class="d-block d-flex justify-content-center align-items-center">
-                            <img src="{{ book.image.url }}" class="img-thumbnail" alt=" {{ book.name }}">
+                            <img src="{{ book.image.url }}" class="img-thumbnail product-image" alt=" {{ book.name }}">
                         </a>
                         <div class="price text-center"> $ {{ book.price }} </div>
                     </li>

@@ -100,11 +100,32 @@ li {
     border-bottom: 1px solid #000;
 }
 
-.img {
-    height: 100%;
-    width: 100%;
+.text-underline {
+    text-decoration: underline !important;
+    color: #e98300;
 }
 
+.text-underline:hover,
+.text-underline:active,
+.text-underline:focus {
+    color: #ccc;
+}
+
+.shopping-bag-container {
+    border: 1px solid #cdcdcd;
+    border-radius: 3px;
+    box-shadow: 0 29px 32px -16px rgba(0,0,0,.2);
+}
+
+.delivery-info {
+    border-bottom: 1px solid #cdcdcd;
+    padding: 15px 20px;
+}
+
+.fa-check {
+    color: greenyellow;
+    margin-right: 10px;
+}
 
 /* Media Queries */
 
