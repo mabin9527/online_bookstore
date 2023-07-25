@@ -10,7 +10,8 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container">
+    <div class="overlay"></div>
+    <div class="container-fluid">
         <div class="row">
             <div class="col-2">
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -60,8 +61,8 @@
                 {% for book in books %}
                     {% if book.category_id == category.cid %}
                     <li class="card border-0 d-flex flex-column justify-content-between">
-                        <h6 class="text-center"><a href="#" class="nav-link">{{ book.name }}</a></h6>
-                        <a href="#" class="d-block d-flex justify-content-center align-items-center">
+                        <h6 class="text-center"><a href="{% url 'product_detail' %}?pid={{ book.pid }}" class="nav-link">{{ book.name }}</a></h6>
+                        <a href="{% url 'product_detail' %}?pid={{ book.pid }}" class="d-block d-flex justify-content-center align-items-center">
                             <img src="{{ book.image.url }}" class="img-thumbnail" alt=" {{ book.name }}">
                         </a>
                         <div class="price text-center"> $ {{ book.price }} </div>

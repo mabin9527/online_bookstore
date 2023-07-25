@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header%}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/products">All Categories</a></li>
+        <li class="breadcrumb-item"><a href="#">Computer</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Product Details</li>
+        </ol>
+    </nav>
+    
+
+{% endblock %}
