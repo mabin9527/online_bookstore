@@ -215,28 +215,40 @@
           "image":"product-teen-02.jpg"
        }
     },
-    {
-       "pk":19,
-       "model":"products.product",
-       "fields":{
-          "name":"Island of Whispers",
-          "author": "Frances Hardinge",
-          "description":"The award-winning, bestselling Frances Hardinge and Emily Gravett unite for the first time to conjure up a thrilling fairy tale of ghosts and magic, highly illustrated throughout with a luscious blue ink. On the island of Merlank, the Dead must not be allowed to linger. The very sight of their ghosts can kill you. When young Milo is thrust into the role of Ferryman following his father's sudden death, he is the one who must carry away the Dead. Pursued by a vengeful lord and two malignant magicians, Milo must navigate strange and perilous seas where untold threats whisper in the mist. Does he have the courage and imagination to complete his urgent mission? From the Costa Book Award-winning Frances Hardinge, author of The Lie Tree and Unraveller , with spectacular illustrations from double Kate Greenaway Medal winner Emily Gravett, this riveting coming-of-age tale will sweep you away on an unforgettable journey. Island of Whispers is a beautiful hardback glittering all over with shining silver moths, making the most exquisite gift for anybody who loves mysterious fantasy worlds, and for fans of Neil Gaiman and Kiran Millwood Hargrave.",
-          "price":21.00,
-          "category":5,
-          "image":"product-teen-03.jpg"
-       }
+   {
+      "pk":19,
+      "model":"products.product",
+      "fields":{
+         "name":"Island of Whispers",
+         "author": "Frances Hardinge",
+         "description":"The award-winning, bestselling Frances Hardinge and Emily Gravett unite for the first time to conjure up a thrilling fairy tale of ghosts and magic, highly illustrated throughout with a luscious blue ink. On the island of Merlank, the Dead must not be allowed to linger. The very sight of their ghosts can kill you. When young Milo is thrust into the role of Ferryman following his father's sudden death, he is the one who must carry away the Dead. Pursued by a vengeful lord and two malignant magicians, Milo must navigate strange and perilous seas where untold threats whisper in the mist. Does he have the courage and imagination to complete his urgent mission? From the Costa Book Award-winning Frances Hardinge, author of The Lie Tree and Unraveller , with spectacular illustrations from double Kate Greenaway Medal winner Emily Gravett, this riveting coming-of-age tale will sweep you away on an unforgettable journey. Island of Whispers is a beautiful hardback glittering all over with shining silver moths, making the most exquisite gift for anybody who loves mysterious fantasy worlds, and for fans of Neil Gaiman and Kiran Millwood Hargrave.",
+         "price":21.00,
+         "category":5,
+         "image":"product-teen-03.jpg"
+      }
     },
     {
-       "pk":20,
-       "model":"products.product",
-       "fields":{
-          "name":"Murtagh TPB",
-          "author": "Paolini Christopher",
-          "description":"Murtagh is a stand-alone novel that picks up one year after the events of the Inheritance Cycle and builds on the story of the original series. Murtagh is one of Paolini’s most popular characters from The World of Eragon series, and this latest novel gives him a story of his own. The world is no longer safe for the Dragon Rider Murtagh and his dragon, Thorn. An evil king has been toppled, and they are left to face the consequences of the reluctant role they played in his reign of terror. Now they are hated and alone, exiled to the outskirts of society. But when Murtagh PRESS RELEASE discovers something wicked lurking in the shadows of Alagaësia, so begins an epic journey into lands both familiar and untravelled, where he and Thorn must use every weapon in their arsenal, from brains to brawn, to find and outwit a mysterious witch. A witch who is much more than she seems...",
-          "price":15.99,
-          "category":5,
-          "image":"product-teen-04.jpg"
-       }
-    }
+      "pk":20,
+      "model":"products.product",
+      "fields":{
+         "name":"Murtagh TPB",
+         "author": "Paolini Christopher",
+         "description":"Murtagh is a stand-alone novel that picks up one year after the events of the Inheritance Cycle and builds on the story of the original series. Murtagh is one of Paolini’s most popular characters from The World of Eragon series, and this latest novel gives him a story of his own. The world is no longer safe for the Dragon Rider Murtagh and his dragon, Thorn. An evil king has been toppled, and they are left to face the consequences of the reluctant role they played in his reign of terror. Now they are hated and alone, exiled to the outskirts of society. But when Murtagh PRESS RELEASE discovers something wicked lurking in the shadows of Alagaësia, so begins an epic journey into lands both familiar and untravelled, where he and Thorn must use every weapon in their arsenal, from brains to brawn, to find and outwit a mysterious witch. A witch who is much more than she seems...",
+         "price":15.99,
+         "category":5,
+         "image":"product-teen-04.jpg"
+      }
+   },
+   {
+      "pk":21,
+      "model":"products.product",
+      "fields":{
+         "name":"Computer Programmer",
+         "author": "Elizabeth Noll",
+         "description":"Amazing things are possible with STEM! This series for beginning readers explores the fascinating careers that use science, technology, engineering, and math every day. Leveled text and on-the-job images explore the daily tasks and education required for each career, while additional features introduce a famous person in the field, tell how each career uses STEM, and explain the steps to begin each career. This series is sure to inspire ambitious young readers!",
+         "price":18.19,
+         "category":1,
+         "image":"product-computer-science-05.jpg"
+      }
+      }
 ]
