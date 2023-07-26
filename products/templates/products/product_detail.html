@@ -68,8 +68,24 @@
                         </div>
                     </div>
                     <div class="price">
-                        <p class="lead font-weight-bold ml-4">$ 18.19 </p>
+                        <h4 class="lead font-weight-bold ml-4">$ 18.19 </h4>
                     </div>
+
+                    <!-- add to bag button -->
+                    <form action="" method="post" class="form">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="col-12">
+                                <p class="lead ml-4 font-weight-bold">Quantity:</p>
+                                <div class="row ml-4 mb-4">
+                                    <input class="form-control qty_input id_qty_{{ product.id }} col-3" type="number"
+                                    name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}">
+                                    <input type="submit" class="btn btn-black rounded-0 text-uppercase col-6 ml-2" value="Add to Bag">
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
                 </div>
             </div>
       

@@ -127,6 +127,10 @@ li {
     margin-right: 10px;
 }
 
+.quantity-input {
+    width: 20%;
+}
+
 /* Media Queries */
 
 /* Slightly larger container on xl screens */
