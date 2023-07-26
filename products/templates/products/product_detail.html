@@ -14,7 +14,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/products">All Categories</a></li>
-        <li class="breadcrumb-item"><a href="#">Computer</a></li>
+        <li class="breadcrumb-item">{{ product.category.friendly_name }}</li>
         <li class="breadcrumb-item active" aria-current="page">Product Details</li>
         </ol>
     </nav>
@@ -24,32 +24,32 @@
                 <div class="product-detail">
                     <div class="row clearfix">
                         <div class="col-5 img-container">
-                            <a href="">
-                                <img src="https://www.easons.com/globalassets/5637150827/all/books/education/study-skills--reference/9781644877425.jpg" alt="" class="img-fluid product-image">
+                            {% if product.image %}
+                            <a href="{{ product.image.url }}" target="_blank">
+                                <img src="{{ product.image.url }}" alt="{{ product.name}}" class="img-fluid">
                             </a>
+                            {% else %}
+                            <a href="">
+                                <img src="{{ MEDIA_URL }}book-no-image.gif" alt="{{ product.name}}">
+                            </a>
+                            {% endif %}
                         </div>
                         <div class="col-7">
                             <div class="product-content">
-                                <h2 class="text-uppercase">Computer Programmer</h2>
+                                <h2 class="text-uppercase">{{ product.name }}</h2>
                                 <div class="author mb-2">
-                                    by <span class="font-weight-bold"> Elizabeth Noll </span>
+                                    by <span class="font-weight-bold"> {{ product.author }} </span>
                                 </div>
+                                {% if product.category %}
                                 <div class="category mb-2">
                                     <span class="d-block mb-2">Categories:</span>
-                                    <a href="#" class="text-underline font-weight-bold">Computer Science</a>
+                                    <a href="#" class="text-underline font-weight-bold">{{ product.category.friendly_name }}</a>
                                 </div>
+                                {% endif %}
                                 <div class="description">
                                     <div class="more">
                                         <p>
-                                            Amazing things are possible with STEM! 
-                                            This series for beginning readers explores 
-                                            the fascinating careers that use science, 
-                                            technology, engineering, and math every day. 
-                                            Leveled text and on-the-job images explore the 
-                                            daily tasks and education required for each career, 
-                                            while additional features introduce a famous person in the field, 
-                                            tell how each career uses STEM, and explain the steps to begin each career. 
-                                            This series is sure to inspire ambitious young readers!
+                                            {{ product.description }}
                                         </p>
                                     </div>
                                 </div>
@@ -68,7 +68,7 @@
                         </div>
                     </div>
                     <div class="price">
-                        <h4 class="lead font-weight-bold ml-4">$ 18.19 </h4>
+                        <h4 class="lead font-weight-bold ml-4">$ {{ product.price}}</h4>
                     </div>
 
                     <!-- add to bag button -->
@@ -83,14 +83,13 @@
                                     <input type="submit" class="btn btn-black rounded-0 text-uppercase col-6 ml-2" value="Add to Bag">
                                 </div>
                             </div>
-
                         </div>
                     </form>
                 </div>
             </div>
-      
         </div>
     </div>
-
-
+    <div class="payment-options text-center mt-4">
+        <img src="{% static '/images/payment-icons.webp'%}" class="img-responsive">
+    </div>
 {% endblock %}

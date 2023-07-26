@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Product, Category
 
 def products(request):
@@ -18,16 +18,9 @@ def product_detail(request):
     """
     View to show individual product details
     """
-    # pid = request.GET.get('pid')
-    # product = Product.objects.filter(pid=pid).first()
-    # print(product.category_id)
-    # category = Category.objects.filter(cid=product.category_id).first()
-    # price = Product.price
-    # books = Product.objects.filter(cid=product.category_id)[0:3]
-    # context = {
-    #     'product': product,
-    #     'category': category,
-    #     'price': price,
-    #     'books': books,
-    # }
-    return render(request, 'products/product_detail.html')
+    pid = request.GET.get('pid')
+    product = get_object_or_404(Product, pk=pid)
+    context = {
+        'product': product,
+    }
+    return render(request, 'products/product_detail.html', context)
