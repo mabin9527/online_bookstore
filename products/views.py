@@ -34,6 +34,35 @@ def product_detail(request):
     return render(request, 'products/product_detail.html', context)
 
 def search(request):
+    """
+    Users are allowed to search specific products in store
+    """
+    products = Product.objects.all()
+    category = None
+    sort = None
+    direction = None
+
+    if request.method == "GET":
+        if 'sort' in request.GET:
+            sort_key = request.GET['sort']
+            sort = sort_key
+            if sort_key == 'category':
+                sort_key = 'category__name'
+            if sort_key == 'name':
+                sort_key = 'lower_name'
+                products = products.annotate(lower_name=Lower('name'))
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sort_key = f'-{sort_key}'
+            products = products.order_by(sort_key)
+
+    if request.method == "GET":
+        if 'category' in request.GET:
+            categories = request.GET['category'].split(',')
+            products = products.filter(category__name__in=categories)
+            categories = Category.objects.filter(name__in=categories)
+
     if request.method == "GET":
         book_info = request.GET.get('q')
         if not book_info:
@@ -43,10 +72,14 @@ def search(request):
         books = Product.objects.filter(
             Q(name__icontains=book_info) | Q(author__icontains=book_info) | Q(description__icontains=book_info)
             ).all()
-            
+
+        current_sort = f'{sort}_{direction}'
+
         context = {
             'books': books,
-            'search_term': book_info
+            'search_term': book_info,
+            'products': products,
+            'current_sort': current_sort
         }     
         return render(request, 'products/search_product.html', context)   
 
