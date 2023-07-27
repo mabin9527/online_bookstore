@@ -52,7 +52,7 @@
             </div>
             <!-- search bar -->
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                <form method="GET" action="{% url 'products_page' %}">
+                <form method="GET" action="{% url 'search_product' %}">
                     <div class="input-group w-100">
                         <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search...">
                         <div class="input-group-append">
@@ -131,7 +131,7 @@
     {% endblock %}
     <footer>
         <div class="copyright background-lgrey">
-            <div class="base text-center pt-1 pb-1">
+            <div class="base text-center pt-1 pb-1 {% if books.count == 0 %}fixed-bottom{% endif %}">
                 Copyright © 2023. All Rights Reserved
             </div>
         </div>

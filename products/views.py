@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from .models import Product, Category
 from django.contrib import messages
+from django.http import HttpResponseRedirect
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 
@@ -34,16 +35,20 @@ def product_detail(request):
 
 def search(request):
     if request.method == "GET":
-        book_info = request.GET.get('book_info')
+        book_info = request.GET.get('q')
         if not book_info:
             messages.error(request, 'Please enter search criteria!')
-            return redirect(reverse('products'))
-        books = Product.objects.filter(name_icontains=book_info, 
-        author_icontains=book_info, description_icontains=book_info)
+            return HttpResponseRedirect('/products')
+
+        books = Product.objects.filter(
+            Q(name__icontains=book_info) | Q(author__icontains=book_info) | Q(description__icontains=book_info)
+            ).all()
+            
         context = {
-            'books': books
+            'books': books,
+            'search_term': book_info
         }     
-        return render(request, 'products', context)   
+        return render(request, 'products/search_product.html', context)   
 
 # @login_required
 # def add_to_cart(request):

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header%}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <div class="list-model">
+            <div class="list-title">
+                <p> Showing results for: <span class="lead font-weight-bold">{{ search_term }}</span> </p>
+            </div>
+            <ul class="list-group list-group-horizontal-sm row row-cols-sm-2 row-cols-md-4">
+                {% if books.count == 0 %}
+                    <p class="text-center font-weight-bold">Sorry, no results!</p>
+                {% endif %}
+                {% for book in books %}
+                <li class="card border-0 d-flex flex-column justify-content-between">
+                    <h6 class="text-center"><a href="{% url 'product_detail' %}?pid={{ book.pid }}" class="nav-link">{{ book.name }}</a></h6>
+                    <a href="{% url 'product_detail' %}?pid={{ book.pid }}" class="d-block d-flex justify-content-center align-items-center">
+                        <img src="{{ book.image.url }}" class="img-thumbnail product-image" alt=" {{ book.name }}">
+                    </a>
+                    <div class="price text-center"> $ {{ book.price }} </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% if books.count %}
+    <div class="payment-options text-center mt-4">
+        <img src="{% static '/images/payment-icons.webp'%}" class="img-responsive">
+    </div>
+    {% endif %}
+{% endblock %}
