@@ -132,7 +132,7 @@
     {% endblock %}
     <footer>
         <div class="copyright background-lgrey">
-            <div class="base text-center pt-1 pb-1 {% if products.count == 0 %}fixed-bottom{% endif %}">
+            <div class="base text-center pt-1 pb-1 {% if products.count == 0 %}fixed-bottom{% endif %} {% if basket_items.count == 0 %}fixed-bottom{% endif %}">
                 Copyright © 2023. All Rights Reserved
             </div>
         </div>
