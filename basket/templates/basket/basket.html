@@ -14,12 +14,14 @@
         <div class="row">
             {% if basket_items %}
                 <div class="col-md-8 col-sm-7 col-xs-12">
-                    <div class="table-responsive rounded"></div>
+                    <div class="table-responsive rounded">
+                        
+                    </div>
                 </div>
             {% else %}
                 <div class="col">
                     <h3 class="lead mb-3 text-center">Your cart is empty</h3>
-                    <a href="#" class="btn btn-outline-black rounded-0 btn-lg nav-link">
+                    <a href="{% url 'products_page' %}" class="btn btn-outline-black rounded-0 btn-lg nav-link">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
                         </span>

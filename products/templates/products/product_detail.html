@@ -71,16 +71,18 @@
                     </div>
 
                     <!-- add to bag button -->
-                    <form action="" method="post" class="form">
+                    <form action="{% url 'add_to_basket' product.pid %}" method="post" class="form">
                         {% csrf_token %}
                         <div class="form-row">
                             <div class="col-12">
+                                <input type="hidden" name="pid[]" value="{{ product.pid }}">
                                 <p class="lead ml-4 font-weight-bold">Quantity:</p>
                                 <div class="row ml-4 mb-4">
-                                    <input class="form-control qty_input id_qty_{{ product.id }} col-3" type="number"
-                                    name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}">
+                                    <input class="form-control qty_input id_qty_{{ product.pid }} col-3" type="number"
+                                    name="quantity" value="1" min="1" max="99" data-item_id="{{ product.pid }}">
                                     <input type="submit" class="btn btn-black rounded-0 text-uppercase col-6 ml-2" value="Add to Bag">
                                 </div>
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             </div>
                         </div>
                     </form>
