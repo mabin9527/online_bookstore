@@ -3,6 +3,8 @@ from .models import Product, Category
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.db.models import Q
+from django.db.models.functions import Lower
+
 from django.contrib.auth.decorators import login_required
 
 from .models import Product, Category
@@ -38,11 +40,13 @@ def search(request):
     Users are allowed to search specific products in store
     """
     products = Product.objects.all()
+    categories_list = Category.objects.all()
+    book_info = None
     category = None
     sort = None
     direction = None
 
-    if request.method == "GET":
+    if request.GET:
         if 'sort' in request.GET:
             sort_key = request.GET['sort']
             sort = sort_key
@@ -57,31 +61,33 @@ def search(request):
                     sort_key = f'-{sort_key}'
             products = products.order_by(sort_key)
 
-    if request.method == "GET":
+    if request.GET:
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
+    
+    if request.GET:
+        if 'q' in request.GET:
+            book_info = request.GET['q']
+            if not book_info:
+                messages.error(request, 'Please enter search criteria!')
+                return HttpResponseRedirect('/products')
+    
+            queries = Q(name__icontains=book_info) | Q(
+                author__icontains=book_info) | Q(
+                description__icontains=book_info)
+            products = products.filter(queries)
 
-    if request.method == "GET":
-        book_info = request.GET.get('q')
-        if not book_info:
-            messages.error(request, 'Please enter search criteria!')
-            return HttpResponseRedirect('/products')
+    current_sort = f'{sort}_{direction}'
 
-        books = Product.objects.filter(
-            Q(name__icontains=book_info) | Q(author__icontains=book_info) | Q(description__icontains=book_info)
-            ).all()
-
-        current_sort = f'{sort}_{direction}'
-
-        context = {
-            'books': books,
-            'search_term': book_info,
-            'products': products,
-            'current_sort': current_sort
-        }     
-        return render(request, 'products/search_product.html', context)   
+    context = {
+        'products': products,
+        'search_term': book_info,
+        'categories_list': categories_list,
+        'current_sort': current_sort
+    }     
+    return render(request, 'products/search_product.html', context)   
 
 # @login_required
 # def add_to_cart(request):
