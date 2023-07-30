@@ -78,10 +78,26 @@
                                 <input type="hidden" name="pid[]" value="{{ product.pid }}">
                                 <p class="lead ml-4 font-weight-bold">Quantity:</p>
                                 <div class="row ml-4 mb-4">
-                                    <input class="form-control qty_input id_qty_{{ product.pid }} col-3" type="number"
-                                    name="quantity" value="1" min="1" max="99" data-item_id="{{ product.pid }}">
-                                    <input type="submit" class="btn btn-black rounded-0 text-uppercase col-6 ml-2" value="Add to Bag">
+                                    <div class="input-group-prepend">
+                                        <button class="decrement-qty btn btn-black decrement-qty_{{ product.id }}" 
+                                            data-item_id="{{ product.id }}">
+                                            <span class="icon">
+                                                <i class="fas fa-minus"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <input class="form-control qty_input id_qty_{{ product.pid }} product-detail-qty_input" type="number"
+                                        name="quantity" value="1" min="1" max="99" data-item_id="{{ product.pid }}" id="quantity">
+                                    <div class="input-group-append">
+                                        <button class="increment-qty btn btn-black increment-qty_{{ product.id }}"
+                                            data-item_id="{{ product.id }}">
+                                            <span class="icon">
+                                                <i class="fas fa-plus"></i>
+                                            </span>
+                                        </button>
+                                    </div>
                                 </div>
+                                <input type="submit" class="btn btn-black rounded text-uppercase col-6 ml-4 mb-4" value="Add to Basket">
                                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             </div>
                         </div>
@@ -93,5 +109,11 @@
     <div class="payment-options text-center mt-4">
         <img src="{% static '/images/payment-icons.webp'%}" class="img-responsive">
     </div>
+{% endblock %}
+
+
+{% block postloadjs %}
+{{ block.super }}
+{% include 'products/includes/quantity_script.html' %}
 {% endblock %}
 

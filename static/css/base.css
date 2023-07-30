@@ -243,6 +243,10 @@ li {
     float: right!important;
 }
 
+.product-detail-qty_input {
+    width: 25%;
+}
+
 /* Media Queries */
 
 /* Slightly larger container on xl screens */
