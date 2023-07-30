@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load basket_tools %}
 
 {% block page_header%}
     <div class="container header-container">
@@ -69,6 +70,16 @@
                                         <p class="quantity-remove text-underline">
                                             <a href="">remove</a>
                                         </p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="basket-page_price text-center font-weight-bold">
+                                        $ {{ item.product.price }}
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="basket-page_price text-center font-weight-bold">
+                                        $ {{ item.product.price | calc_subtotal:item.quantity }} 
                                     </div>
                                 </div>
                             </div>

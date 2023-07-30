@@ -19,7 +19,7 @@ def basket_contents(request):
                 'quantity': item_data,
                 'product': product,
             })
-
+    
     context = {
         'basket_items': basket_items,
         'total': total,
