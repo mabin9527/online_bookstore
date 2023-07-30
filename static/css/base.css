@@ -121,8 +121,66 @@ li {
     width: 20%;
 }
 
-.sort-select-wrapper {
-    width: 150px;
+.basket-container {
+    border-radius: 3px;
+    box-shadow: 0 29px 32px -16px rgba(0,0,0,.2);
+}
+
+.basket-page_top_notice {
+    color: #656565;
+    display: block;
+    font-size: 24px;
+    line-height: 1;
+    margin: 15px 0;
+    padding: 0;
+    width: 100%;
+}
+
+.basket-page_delivery-info {
+    font-size: 14px;
+    line-height: 20px;
+    
+}
+
+.basket-page_list-item {
+    margin-bottom: 40px;
+    margin-right: 2px;
+}
+
+.basket-page_hearder-bar {
+    background-color: #f2f2f2;
+    min-height: 30px;
+    padding: 10px;
+}
+
+.purchase-item {
+    border-bottom: 1px solid #ccc;
+    padding: 20px 0;
+}
+
+.btn-flex {
+    display: flex;
+}
+
+.basket-page_img-container {
+    float: left;
+    height: 140px;
+    margin-right: 15px;
+    width: 110px;
+}
+
+.basket-page_img-container>img {
+    height: 100%;
+    object-fit: contain;
+    width: 100%;
+}
+
+.break-world {
+    word-break: break-all;
+}
+
+.purchase-item-description {
+    width: calc(100% - 110px)
 }
 
 /* Media Queries */

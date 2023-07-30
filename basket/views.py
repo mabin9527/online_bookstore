@@ -7,7 +7,13 @@ def view_basket(request):
     """
     A view to display the basket page
     """
-    return render(request, 'basket/basket.html')
+    product = Product.objects.all()
+    categories = Category.objects.all()
+    context = {
+        'product': product,
+        'categories': categories
+    }
+    return render(request, 'basket/basket.html', context)
 
 def add_to_basket(request, pid):
     """
@@ -23,6 +29,5 @@ def add_to_basket(request, pid):
     else:
         basket[pid] = quantity
         messages.success(request, f'Added {product.name} to your basket')
-
     request.session['basket'] = basket
     return redirect(redirect_url)

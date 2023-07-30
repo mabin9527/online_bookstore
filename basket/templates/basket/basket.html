@@ -10,12 +10,61 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container mb-2">
+    <div class="container mb-2 basket-container">
         <div class="row">
             {% if basket_items %}
                 <div class="col-md-8 col-sm-7 col-xs-12">
-                    <div class="table-responsive rounded">
-                        
+                    <p class="basket-page_top_notice">
+                        You have {{ product_count }} items in your Basket
+                    </p>
+                    {% if total > 15 %}
+                    <p class="basket-page_delivery-info text-left">
+                        Free delivery to Ireland & UK on orders.
+                    </p>
+                    {% endif %}
+                    <div class="basket-page_list-item">
+                        <div class="basket-page_hearder-bar">
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="header-title">Item</div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="header-title text-center">Quantity</div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="header-title text-center">Item Price</div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="header-title text-center">Total Price</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="purchase-item">
+                            {% for item in basket_items %}
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="btn-flex purchase-item_container">
+                                        <div class="basket-page_img-container">
+                                            {% if item.product.image %}
+                                                <img src="{{ item.product.image.url }}" alt="{{ item.product.name}}">
+                                            {% else %}
+                                                <img src="{{ MEDIA_URL }}book-no-image.gif" alt="{{ product.name}}">
+                                            {% endif %}
+                                        </div>
+                                        <div class="purchase-item-description">
+                                            <div class="font-weight-bold text-uppercase break-world mb-2">
+                                                {{ item.product.name }}
+                                            </div>
+                                            <div class="small mb-2">by {{ item.product.author }}</div>
+                                            <div class="home-delivery">
+                                                <i class="fas fa-check small"> Home Delivery</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
             {% else %}
