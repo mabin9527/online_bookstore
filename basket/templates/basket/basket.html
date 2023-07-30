@@ -62,6 +62,15 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-sm-2">
+                                    <div class="quantity-box text-center">
+                                        <input type="number" step="1" min="1" class="form-control item-quantity" 
+                                        name="quantity" pattern="^[1-9]+[0-9]*" value="{{ item.quantity }}">
+                                        <p class="quantity-remove text-underline">
+                                            <a href="">remove</a>
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                             {% endfor %}
                         </div>
