@@ -52,11 +52,11 @@ def adjust_basket(request, pid):
 
 def remove_from_basket(request, pid):
     """Remove the item from the shopping bag"""
-
     try:
         product = get_object_or_404(Product, pk=pid)
         basket = request.session.get('basket', {})
         basket.pop(pid)
+        print(basket)
         messages.success(request, f'Removed {product.name} from your bag')
         request.session['basket'] = basket
         return HttpResponse(status=200)

@@ -1,0 +1,10 @@
+<form class="form update-form text-center" method="POST" action="{% url 'adjust_basket' item.pid %}">
+    {% csrf_token %}
+    <input type="number" step="1" min="1" class="form-control item-qty-{{ item.pid }}" 
+    name="quantity" pattern="^[1-9]+[0-9]*" value="{{ item.quantity }}" 
+    data-item_id="{{ item.pid }}" id="id_qty_{{ item.pid }}">
+</form>
+<a class="update-link text-success ml-3"><small>Update</small></a>
+<a class="remove-item text-danger ml-3" id="remove_{{ item.pid }}">
+    <small>Remove</small>
+</a>
