@@ -247,6 +247,22 @@ li {
     width: 25%;
 }
 
+/*  Toasts */
+.message-container {
+    position: fixed;
+    right: 15px;
+    top: 72px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
 /* Media Queries */
 
 /* Slightly larger container on xl screens */
