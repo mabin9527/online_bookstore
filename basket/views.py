@@ -22,9 +22,12 @@ def add_to_basket(request, pid):
     product = get_object_or_404(Product, pk=pid)
     quantity = int(request.POST.get('quantity'))
     basket = request.session.get('basket', {})
+    if not product:
+        messages.error(request, 'Product does not exist!')
+        return redirect(reverse('view_basket'))
     if pid in list(basket.keys()):
         basket[pid] += quantity
-        messages.success(request, f'Updated {product.name} quantity to\{basket[pid]}')
+        messages.success(request, f'Updated {product.name} quantity to {basket[pid]}')
     else:
         basket[pid] = quantity
         messages.success(request, f'Added {product.name} to your basket')
@@ -40,9 +43,12 @@ def adjust_basket(request, pid):
     product = get_object_or_404(Product, pk=pid)
     quantity = int(request.POST.get('quantity'))
     basket = request.session.get('basket', {})
+    if not product:
+        messages.error(request, 'Product does not exist')
+        return redirect(reverse('view_basket'))
     if quantity > 0:
         basket[pid] = quantity
-        messages.success(request, f'Updated {product.name} quantity to\{basket[pid]}')
+        messages.success(request, f'Updated {product.name} quantity to {basket[pid]}')
     else:
         basket.pop(pid)
         messages.success(request, f'Removed {product.name} from your basket')
