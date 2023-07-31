@@ -64,14 +64,18 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
-                                    <form class="text-center" method="post">
+                                    <form class="form update-form text-center" method="POST" action="{% url 'adjust_basket' item.pid %}">
                                         {% csrf_token %}
-                                        <input type="number" step="1" min="1" class="form-control item-quantity" 
+                                        <input type="number" step="1" min="1" class="form-control item-qty-{{ item.pid }}" 
                                         name="quantity" pattern="^[1-9]+[0-9]*" value="{{ item.quantity }}" 
-                                        data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                                        data-item_id="{{ item.pid }}" id="id_qty_{{ item.pid }}">
+                                        <button class="btn update-item small" data-item-id="{{ item.pid }}">
+                                            Update
+                                        </button>
+                                        <button class="btn remove-item small" data-item-id="{{ item.pid }}" id="remove_{{ item.pid }}">
+                                            Remove
+                                        </button>
                                     </form>
-                                    <a class="update-link d-block ml-3 mt-2"><small>Update</small></a>
-                                    <a class="remove-item d-block ml-3 mt-2" id="remove_{{ item.item_id }}"><small>Remove</small></a>
                                 </div>
                                 <div class="col-sm-2">
                                     <div class="basket-page_price text-center font-weight-bold">
@@ -181,25 +185,25 @@
 {{ block.super }}
 <script>
     // Update quantity on click
-    $('.update-product-quantity').click(function (e) {
+    $('.update-link').click(function (e) {
         var form = $(this).prev('.update-form');
         form.submit();
     })
-
+    
     // Remove item and reload on click
-    $('.remove-product').click(function (e) {
-        var csrfToken = "{{ csrf_token }}";
-        var itemId = $(this).attr('id').split('remove_')[1];
-        var url = `/basket/remove/${itemId}/`;
-        var data = {
-            'csrfmiddlewaretoken': csrfToken,
-        };
+    $('.remove-item').click(function(e) {
+    var csrfToken = "{{ csrf_token }}";
+    var itemId = $(this).attr('id').split('remove_')[1];
+    var url = `/basket/remove/${itemId}/`;
+    var data = {'csrfmiddlewaretoken': csrfToken};
 
-        $.post(url, data)
-            .done(function () {
-                location.reload();
-            });
+    $.post(url, data)
+        .done(function() {
+            location.reload();
+        });
     })
+    console.log(1)
+    console.log(itemId);
 </script>
 
 

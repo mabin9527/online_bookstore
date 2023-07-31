@@ -183,20 +183,12 @@ li {
     width: calc(100% - 110px)
 }
 
-.remove-item,
-.update-link {
-    color:#656565;
-    cursor: pointer;
-}
 
-.remove-item:hover,
+/* .remove-item:hover,
 .remove-item:active,
-.remove-item:focus,
-.update-link:hover,
-.update-link:active,
-.update-link:focus {
+.remove-item:focus {
     color:#ccc !important;
-}
+} */
 
 .basket-page_order-summary {
     background-color: #f2f2f2;
