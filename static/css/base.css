@@ -341,7 +341,16 @@ li {
     }
   
     .header-container {
-        padding-top: 164px;
+        padding-top: 180px;
+    }
+}
+
+@media (max-width: 992px) {
+    .product-carousel {
+        display: none;
+    }
+    .header-container {
+        padding-top: 130px;
     }
 }
 
