@@ -7,7 +7,7 @@ def checkout(request):
     if not bag:
         messages.error(
             request, "Your shopping cart is empty!")
-            return redirect(reverse('products'))
+        return redirect(reverse('products'))
     
     order_form = OrderForm()
     template = 'checkout/checkout.html'
