@@ -314,6 +314,11 @@ li {
     overflow-y: auto;
 }
 
+.checkout-header {
+    border-bottom: 2px solid #ccc;
+}
+
+
 /* Media Queries */
 
 /* Slightly larger container on xl screens */
@@ -337,6 +342,7 @@ li {
         padding-top: 164px;
     }
 }
+
 
 /* @media (max-width: 992px) {
     #delivery-banner {

@@ -28,10 +28,76 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container mb-2">
-        <div class="row">
+    <div class="container">
+        <div class="row rounded p-2 checkout-header">
             <div class="col">
-                
+               <h2 class="text-uppercase mb-2">
+                Secure Checkout
+               </h2>
+            </div>
+            <hr>
+        </div>
+        <div class="row">
+            <div class="col-sm-8 col-xs-12">
+                <h4 class="text-uppercase text-muted text-center mt-4">
+                    Delivery Address
+                </h4>
+                <form action="{% url 'checkout' %}" method="post" id="payment-form">
+                    {% csrf_token %}
+                    <fieldset class="rounded px-3 mb-5">
+                        <legend class="fieldset-label small px-2 w-auto">Details</legend>
+                        {{ order_form.full_name | as_crispy_field }}
+                        {{ order_form.email_address | as_crispy_field }}
+                    </fieldset>
+                    <fieldset class="rounded px-3 mb-5">
+                        <legend class="fieldset-label small px-2 w-auto">Delivery</legend>
+                        {{ order_form.mobile_number | as_crispy_field }}
+                        {{ order_form.street_address1 | as_crispy_field }}
+                        {{ order_form.street_address2 | as_crispy_field }}
+                        {{ order_form.city | as_crispy_field }}
+                        {{ order_form.county | as_crispy_field }}
+                        {{ order_form.postcode | as_crispy_field }}
+                        {{ order_form.country | as_crispy_field }}
+                        <div class="form-check form-check-inline float-right mr-0">
+                            {% if user.is_authenticated %}
+                            <label class="form-check-label" for="id-save-info">Save this address
+                                to my profile</label>
+                            <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info"
+                                name="save-info" checked>
+                            {% else %}
+                            <label class="form-check-label" for="id-save-info">
+                                <a class="text-success" href="{% url 'account_signup' %}"><strong>Create an
+                                    account</strong></a> or
+                                <a class="text-success" href="{% url 'account_login' %}"><strong>login</strong></a> to save
+                                this information
+                            </label>
+                            {% endif %}
+                        </div>
+                    </fieldset>
+                    <fieldset class="px-3">
+                        <legend class="fieldset-label small px-2 w-auto">Payment</legend>
+                        <!-- A Stripe card element will go here -->
+                        <div class="mb-3 p-2 border border-secondary rounded" id="card-element"></div>
+                        <!-- Used to display form errors -->
+                        <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                        <!-- Pass the client secret to the view so we can get the payment intent id -->
+                        <input type="hidden" name="client_secret" value="{{ client_secret }}">
+                    </fieldset>
+                    <div class="submit-button text-right mr-3 mb-5">
+                        <a href="{% url 'view_basket' %}" class="btn btn-outline-secondary rounded">
+                            <span class="icon">
+                                <i class="fas fa-chevron-left text-success"></i>
+                            </span>
+                            <span class="font-weight-bold">Back</span>
+                        </a>
+                        <button id="submit-button" class="btn btn-success rounded">
+                            <span class="font-weight-bold">Submit Order</span>
+                            <span class="icon">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
