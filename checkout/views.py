@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.conf import settings
 import stripe
+import json
 
 from .forms import OrderForm
 from .models import Order, OrderLineItem
@@ -15,52 +16,52 @@ def checkout(request):
     if request.method == 'POST':
         basket = request.session.get('basket', {})
 
-    form_data = {
-        'full_name': request.POST['full_name'],
-        'email': request.POST['email_address'],
-        'phone_number': request.POST['mobile_number'],
-        'address1': request.POST['street_address1'],
-        'address2': request.POST['street_address2'],
-        'town_or_city': request.POST['city'],
-        'postcode': request.POST['postcode'],
-        'county': request.POST['county'],
-        'country': request.POST['country'],
-    }
-    order_form = OrderForm(form_data)
-    if order_form.is_valid():
-        order = order_form.save(commit=False)
-        pid = request.POST.get('client_secret').split('_secret')[0]
-        order.stripe_pid = pid
-        order.original_basket = json.dumps(basket)
-        order.save()
-        for pid, item_data in basket.items():
-            try:
-                product = Product.objects.get(id=pid)
-                if isinstance(item_data, int):
-                    order_line_item = OrderLineItem(
-                        order=order,
-                        product=product,
-                        quantity=item_data,
-                    )
-                    order_line_item.save()
+        form_data = {
+            'full_name': request.POST['full_name'],
+            'email_address': request.POST['email_address'],
+            'mobile_number': request.POST['mobile_number'],
+            'street_address1': request.POST['street_address1'],
+            'street_address2': request.POST['street_address2'],
+            'city': request.POST['city'],
+            'postcode': request.POST['postcode'],
+            'county': request.POST['county'],
+            'country': request.POST['country'],
+        }
+        order_form = OrderForm(form_data)
+        if order_form.is_valid():
+            order = order_form.save(commit=False)
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pid
+            order.original_basket = json.dumps(basket)
+            order.save()
+            for item_id, item_data in basket.items():
+                try:
+                    product = Product.objects.get(pid=item_id)
+                    if isinstance(item_data, int):
+                        order_line_item = OrderLineItem(
+                            order=order,
+                            product=product,
+                            quantity=item_data,
+                        )
+                        order_line_item.save()
 
-            except Product.DoesNotExist:
-                messages.error(request, (
-                    "One of the products in your basket was not found in\
-                            our database. "
-                    "Please call us for assistance!")
-                )
-                order.delete()
-                return redirect(reverse('view_basket'))
+                except Product.DoesNotExist:
+                    messages.error(request, (
+                        "One of the products in your basket was not found in\
+                                our database. "
+                        "Please call us for assistance!")
+                    )
+                    order.delete()
+                    return redirect(reverse('view_basket'))
                 
         # Save the info to the user's profile if all is well
-        request.session['save_info'] = 'save-info' in request.POST
-        return redirect(
-            reverse('checkout_success', args=[order.order_number])
-        )
-    else:
-        messages.error(request, 'There was an error with your form. \
-            Please check your information.')
+            request.session['save_info'] = 'save-info' in request.POST
+            return redirect(
+                reverse('checkout_success', args=[order.order_number])
+            )
+        else:
+            messages.error(request, 'There was an error with your form. \
+                Please check your information.')
 
     else:
         basket = request.session.get('basket', {})
