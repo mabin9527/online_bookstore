@@ -3,20 +3,7 @@
 {% load basket_tools %}
 
 {% block extra_css %}
-    {% if not basket_items %}
-    <style>
-        footer {
-            background-color: #f0f0f0;
-            padding: 10px;
-            text-align: center;
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-        }
-    </style>
-    {% endif %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
 {% block page_header%}
@@ -102,7 +89,7 @@
             <div class="col-sm-4 col-xs-12">
                 {% if basket_items %}
                 <div class="basket-page_order-summary mt-3">
-                    <div class="order-summary-header">
+                    <div class="order-summary-header p-2">
                         <h5 class="order-summary-header-text"> Order Summary</h5>
                         <p class="order-summary-header-text small d-block">{{ product_count }} items</p>
                     </div>
@@ -178,6 +165,13 @@
             {% endif %}
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}
     
     
