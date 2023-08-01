@@ -99,6 +99,83 @@
                     </div>
                 </form>
             </div>
+            <div class="col-sm-4 col-xs-12">
+                {% if basket_items %}
+                <div class="basket-page_order-summary mt-3">
+                    <div class="order-summary-header">
+                        <h5 class="order-summary-header-text"> Order Summary</h5>
+                        <p class="order-summary-header-text small d-block">{{ product_count }} items</p>
+                    </div>
+                    <div class="order-summary-body">
+                        {% for item in basket_items %}
+                        <div class="order-summary-items mb-4 d-flex flex-column">
+                            <span>
+                                <strong>{{ item.product.name }}</strong>
+                            </span>
+                            <span class="small">by {{item.product.author}} </span>
+                        </div>
+                        {% endfor %}
+                        <div class="price text-right">${{ total }}</div>
+                        <hr>
+                        {% if free_delivery_delta > 0 %}
+                        <div class="small">
+                            <p>
+                                Add $ {{ free_delivery_delta }} of 
+                                items to qualify for <strong>FREE</strong> 
+                                delivery to Ireland and the UK.
+                            </p>
+                        </div>
+                        <hr>
+                        <div class="order-summary-body-prices small">
+                            <div class="order-summary-body-price delivery-cost font-weight-bold">
+                                <p>Est. Delivery</p>
+                                <p>$ {{ delivery }} </p>
+                            </div>
+                            <div class="order-summary-body-price vat font-weight-bold">
+                                <p>VAT</p>
+                                <p>0</p>
+                            </div>
+                            <div class="order-summary-body-price subtotal font-weight-bold">
+                                <p>Subtotal</p>
+                                <p>$ {{ total|floatformat:2 }} </p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="grandtotal">
+                            <span class="est-total__value pull-right font-weight-bold">$ {{ grand_total|floatformat:2 }}</span>
+                            <span>Est. Total</span>
+                        </div>                          
+                        {% else %}
+                        <div class="small">
+                            <p>
+                                Your order qualifies for FREE Delivery in IRL & UK.
+                            </p>
+                        </div>
+                        <hr>
+                        <div class="order-summary-body-prices small">
+                            <div class="order-summary-body-price delivery-cost font-weight-bold">
+                                <p>Est. Delivery</p>
+                                <p>$ {{ delivery }} </p>
+                            </div>
+                            <div class="order-summary-body-price vat font-weight-bold">
+                                <p>VAT</p>
+                                <p>0</p>
+                            </div>
+                            <div class="order-summary-body-price subtotal font-weight-bold">
+                                <p>Subtotal</p>
+                                <p>$ {{ total|floatformat:2 }} </p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="grandtotal">
+                            <span class="est-total__value pull-right font-weight-bold">$ {{ grand_total|floatformat:2 }}</span>
+                            <span>Est. Total</span>
+                        </div> 
+                        {% endif %}
+                    </div>
+                </div>
+            </div> 
+            {% endif %}
         </div>
     </div>
 {% endblock %}

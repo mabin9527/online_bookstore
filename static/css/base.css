@@ -196,7 +196,6 @@ li {
 
 .order-summary-header {
     background-color: #656565;
-    display: flex;
     min-height: 30px;
 }
 
@@ -317,6 +316,9 @@ li {
 .checkout-header {
     border-bottom: 2px solid #ccc;
 }
+
+
+
 
 
 /* Media Queries */
