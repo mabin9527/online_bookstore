@@ -46,6 +46,11 @@ select option {
   color: #000000;
 }
 
+select:invalid,
+select option[value=""] {
+  color: #ccc !important;
+}
+
 #spinner-overlay {
     display: none;
     position: fixed;

@@ -24,7 +24,7 @@ class OrderForm(forms.ModelForm):
             'street_address1': 'Street Address 1',
             'street_address2': 'Street Address 2',
             'city': 'City',
-            'county': 'County',
+            'county': 'County or State',
             'postcode': 'Eir Code',
         }
 
