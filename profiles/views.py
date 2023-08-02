@@ -1,6 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 
 from .models import UserProfile
+from .forms import UserProfileForm
+from checkout.models import Order
+
 
 
 def profile(request):
@@ -15,6 +18,6 @@ def profile(request):
     template = 'profiles/profile.html'
     context = {
         'form': form,
-        'order': order,
+        'orders': orders,
     }
     return render(request, template, context)
