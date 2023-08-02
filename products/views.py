@@ -23,11 +23,10 @@ def products(request):
     }
     return render(request, 'products/products.html', context)
 
-def product_detail(request):
+def product_detail(request, pid):
     """
     View to show individual product details
     """
-    pid = request.GET.get('pid')
     product = get_object_or_404(Product, pk=pid)
     context = {
         'product': product,
@@ -100,7 +99,7 @@ def add_product(request):
         if form.is_valid():
             product = form.save()
             messages.success(request, 'Successfully added product!')
-            return redirect(reverse('product_detail', args=[product.id]))
+            return redirect(reverse('product_detail', args=[product.pid]))
         else:
             messages.error(request,
                            ('Failed to add product. '
