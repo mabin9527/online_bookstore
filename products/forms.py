@@ -1,7 +1,5 @@
 from django import forms
-
 from .models import Product, Category
-from .widgets import CustClearableFileInput
 
 
 class ProductForm(forms.ModelForm):
@@ -17,7 +15,6 @@ class ProductForm(forms.ModelForm):
     image = forms.ImageField(
         label='Image',
         required=False,
-        widget=CustClearableFileInput
         )
 
     def __init__(self, *args, **kwargs):
