@@ -42,7 +42,7 @@
                                 {% if product.category %}
                                 <div class="category mb-2">
                                     <span class="d-block mb-2">Categories:</span>
-                                    <a href="#" class="text-underline font-weight-bold">{{ product.category.friendly_name }}</a>
+                                    <a href="{% url 'products_page' %}" class="text-underline font-weight-bold">{{ product.category.friendly_name }}</a>
                                 </div>
                                 {% endif %}
                                 <div class="description">
