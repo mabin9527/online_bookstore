@@ -99,7 +99,7 @@ def add_product(request):
         if form.is_valid():
             product = form.save()
             messages.success(request, 'Successfully added product!')
-            return redirect(reverse('product_detail', args=[product.pid]))
+            return redirect(reverse('products_page'))
         else:
             messages.error(request,
                            ('Failed to add product. '
@@ -110,6 +110,41 @@ def add_product(request):
     template = 'products/add_product.html'
     context = {
         'form': form,
+    }
+
+    return render(request, template, context)
+
+@login_required
+def edit_product(request, pid):
+    """
+    Edit product in the store
+    """
+
+    categories_list = Category.objects.all()
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Only Admins can do that.')
+        return redirect(reverse('home'))
+
+    product = get_object_or_404(Product, pk=pid)
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Product has been updated.')
+            return redirect(reverse('products_page'))
+        else:
+            messages.error(
+                request, 'Failed to update product. Check form is valid.')
+    else:
+        form = ProductForm(instance=product)
+        messages.info(request, f'You are editing {product.name}')
+
+    template = 'products/edit_product.html'
+    context = {
+        'form': form,
+        'product': product,
+        'categories_list': categories_list,
     }
 
     return render(request, template, context)
