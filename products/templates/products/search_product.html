@@ -57,7 +57,7 @@
     </div>
     {% if products.count %}
     <div class="payment-options text-center mt-4">
-        <img src="{% static '/images/payment-icons.webp'%}" class="img-responsive">
+        <img src="{{ MEDIA_URL }}payment-icons.webp" class="img-responsive">
     </div>
     {% endif %}
 
