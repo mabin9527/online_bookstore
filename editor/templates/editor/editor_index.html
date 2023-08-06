@@ -1,20 +1,51 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block page_header%}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'editor/css/editor.css' %}">
 {% endblock %}
 
 {% block content %}
-    <div class="container online-bookstore-container">
-        <div class="row rounded p-2">
-            <div class="col-12 col-md-6">
-                {{ userinfo }}
-            </div>
+<div class="editor-container">
+    <div class="left-box">
+        <ul>
+            <h5 class="text-center">Welcome Back!</h5>
+            <hr>
+            <li class="editor-item mt-3">
+                <i class="fas fa-book pr-2"></i>
+                <span>Product List</span>
+            </li>
+            <li class="editor-item">
+                <i class="fas fa-pen pr-2"></i>
+                <span>Product Edit</span>
+            </li>
+            <li class="editor-item">
+                <i class="fas fa-address-book pr-2"></i>
+                <span>Staff List</span>
+            </li>
+            <li class="editor-item">
+                <i class="fas fa-list pr-2"></i>
+                <span>Order List</span>
+            </li>
+        </ul>
+        <div class="user-info">
+            <img src="{{ MEDIA_URL }}book-logo.jpg" alt="">
+            <span>{{ userinfo }}</span>
+            <i class="icon icon-gear"></i>
         </div>
     </div>
+    <div class="right-box">
+        <div class="top">
+            <span class="current-tag"></span>
+            <div class="btn">
+                <i class="icon icon-search"></i>
+            </div>
+            <div class="btn">
+                <i class="icon icon-add"></i>
+            </div>
+        </div>
+        <div class="middle">Online Bookstore</div>
+        <div class="handler"></div>
+    </div>
+</div>
 {% endblock %}
