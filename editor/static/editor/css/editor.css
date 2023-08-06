@@ -17,7 +17,7 @@
 .left-box{
     width: 250px;
     height: 100%;
-    background-color: rgba(0,0,0,0.15);
+    background-color: rgba(0,0,0,0.25);
     backdrop-filter: blur(30px);
     position: relative;
     color: #fff;
@@ -43,6 +43,10 @@
     border-radius: 10px;
     cursor: pointer;
     transition: 0.3s;
+}
+
+.left-box li a {
+    color:#fff;
 }
 
 .left-box li.active,
@@ -96,7 +100,7 @@
 /* right side content */
 
 .right-box{
-    background-color: #ccc;
+    background-color: #fff;
     flex: 1;
     position: relative;
     display: flex;
@@ -106,29 +110,10 @@
 .right-box .top{
     margin: 25px 35px;
     display: flex;
-    align-items: center;
+    justify-content: flex-end;
     height: 46px;
 }
 
-.right-box .top .current-tag{
-    flex: 1;
-    color: #fff;
-    font-weight: 600;
-}
-
-.right-box .top .btn{
-    width: 32px;
-    height: 32px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-}
-
-.right-box .top .btn:last-child{
-    background-color: #446dff;
-    margin-left: 20px;
-}
 
 .right-box .middle{
     flex: 1;
@@ -136,9 +121,12 @@
     justify-content: center;
     align-items: center;
     color: #222;
-    font-size: 6vw;
+    font-size: 36px;
     font-weight: bold;
-    text-transform: uppercase;
+}
+
+.hidden {
+    display: none !important;
 }
 
 .right-box .handler{
@@ -157,7 +145,7 @@
 .right-box .handler::before,
 .right-box .handler::after{
     content: "";
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(0,0,0,0.6);
     position: absolute;
     left: 0;
     width: 100%;
@@ -190,3 +178,4 @@
 .right-box .handler.close:hover::after{
     transform: skewX(-15deg);
 }
+

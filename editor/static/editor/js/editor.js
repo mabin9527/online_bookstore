@@ -1,17 +1,18 @@
 let items=document.querySelectorAll('.editor-item');
-let current_tag=document.querySelector('.current-tag');
+// let current_tag=document.querySelector('.current-tag');
+let middle = document.querySelector('.middle');
 let handler=document.querySelector('.handler');
 let left_box=document.querySelector('.left-box');
 
-// 设置选中项的样式
 function setActive(){
     items.forEach((item)=>{
         item.classList.remove('active');
     })
     this.classList.add('active');
-    current_tag.innerText=this.innerText;
+    middle.classList.add('hidden');
+    // current_tag.innerText=this.innerText;
 }
-// 为每一个li设置点击事件
+
 items.forEach((item)=>{
     item.addEventListener('click',setActive);
 })

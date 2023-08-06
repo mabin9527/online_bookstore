@@ -34,7 +34,7 @@
         </div>
     </div>
     <div class="right-box container">
-        <div class="top pull-right">
+        <div class="top">
             <form method="GET" action="{% url 'search_product' %}">
                 <div class="input-group w-100">
                     <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search...">
@@ -46,7 +46,37 @@
                 </div>
             </form>
         </div>
-        <div class="middle">Welcome to Online Bookstore Admin Panel</div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Author</th>
+                      <th scope="col">Price</th>
+                      <th scope="col">Edit</th>
+                    </tr>
+                </thead>
+                {% for product in products %}
+                <tbody>
+                    <tr>
+                        <th scope="row">{{ product.pid }}</th>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.author }}</td>
+                        <td>{{ product.price }}</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+              <ul class="pagination fixed-bottom mb-5">
+                {{ page_string }}
+              </ul>
+            </div>
+        </div>
         <div class="handler"></div>
     </div>
 </div>
