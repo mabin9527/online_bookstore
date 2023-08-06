@@ -31,7 +31,6 @@
         <div class="user-info">
             <img src="{{ MEDIA_URL }}book-logo.jpg" alt="">
             <span>{{ userinfo }}</span>
-            <i class="icon icon-gear"></i>
         </div>
     </div>
     <div class="right-box">
@@ -48,4 +47,9 @@
         <div class="handler"></div>
     </div>
 </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script src="{% static 'editor/js/editor.js' %}"></script>
 {% endblock %}
