@@ -33,7 +33,7 @@
             <span>{{ userinfo }}</span>
         </div>
     </div>
-    <div class="right-box container">
+    <div class="right-box container add_right-box">
         <div class="top">
             <form method="GET" action="{% url 'search_product' %}">
                 <div class="input-group w-100">
@@ -46,47 +46,34 @@
                 </div>
             </form>
         </div>
-        <div class="table-responsive">
-            <table class="table">
-                <thead>
-                    <tr>
-                      <th scope="col">ID</th>
-                      <th scope="col">Name</th>
-                      <th scope="col">Author</th>
-                      <th scope="col">Price</th>
-                      <th scope="col">Edit</th>
-                    </tr>
-                </thead>
-                {% for product in products %}
-                <tbody>
-                    <tr>
-                        <th scope="row">{{ product.pid }}</th>
-                        <td>{{ product.name }}</td>
-                        <td>{{ product.author }}</td>
-                        <td>{{ product.price }}</td>
-                        <td>
-                            <a href="" class="edit-link">Update</a>
-                            <span>|</span>
-                            <a href="#" class="edit-link">Delete</a>
-                        </td>
-                    </tr>
-                </tbody>
-                {% endfor %}
-            </table>
-        </div>
         <div class="row">
-            <div class="col-xs-12">
-              <ul class="pagination fixed-bottom mb-5">
-                {{ page_string }}
-              </ul>
+            <div class="col-12 col-md-6">
+                <form action="{% url 'editor_add_product' %}" method="POST" class="form mb-2" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        {% if field.name != 'image' %}
+                            {{ field | as_crispy_field }}
+                        {% else %}
+                            {{ field | as_crispy_field }}
+                        {% endif %}
+                    {% endfor %}
+                    <div class="text-right">
+                        <button class="btn btn-success rounded" type="submit">Add Product</button>
+                        <a href="{% url 'products_page' %}" class="btn btn-outline-dark rounded">Cancel</a>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="handler"></div>
     </div>
 </div>
 {% endblock %}
 
 {% block postloadjs %}
     {{ block.super }}
-    <script src="{% static 'editor/js/editor.js' %}"></script>
+    <script type="text/javascript">
+        $('#new-image').change(function() {
+            var file = $('#new-image')[0].files[0];
+            $('#filename').text(`Image will be set to: ${file.name}`);
+        });
+    </script>
 {% endblock %}

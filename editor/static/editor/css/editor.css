@@ -105,6 +105,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    overflow-y: auto; 
 }
 
 .right-box .top{
@@ -179,3 +180,9 @@
     transform: skewX(-15deg);
 }
 
+/* add product page */
+
+.add_right-box {
+    padding-left: 40px;
+    padding-bottom: 40px;
+}

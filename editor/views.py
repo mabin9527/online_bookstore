@@ -1,11 +1,13 @@
 from django.conf import settings
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 import stripe
 import json
 from utils.pagination import Pagination
 from checkout.models import Order
 from products.models import Product
+from products.forms import ProductForm
 
 
 
@@ -42,5 +44,32 @@ def editor_stock_list(request):
         
     }
     return render(request, 'editor/editor_stock_list.html', context)
+
+@login_required
+def editor_add_product(request):
+    """ Add a product to the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            product = form.save()
+            messages.success(request, 'Successfully added product!')
+            return redirect(reverse('editor_stock_list'))
+        else:
+            messages.error(request,
+                           ('Failed to add product. '
+                            'Please ensure the form is valid.'))
+    else:
+        form = ProductForm()
+
+    template = 'editor/editor_add_product.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
 
 

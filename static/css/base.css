@@ -89,7 +89,10 @@ li {
 .logo-font:focus,
 .nav-link:hover,
 .nav-link:active,
-.nav-link:focus {
+.nav-link:focus,
+.edit-link:hover,
+.edit-link:active,
+.edit-link:focus {
     color:#ccc !important;
 }
 
@@ -429,7 +432,7 @@ input[name="a"]::placeholder {
 }
 
 .pagination li a {
-    font-family: 'Lato', sans-serif;
+    font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
 .pagination li:not(:last-child) {
