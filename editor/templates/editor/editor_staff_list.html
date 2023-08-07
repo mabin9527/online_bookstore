@@ -62,23 +62,30 @@
                       <th scope="col">Gender</th>
                       <th scope="col">Mobile</th>
                       <th scope="col">Address</th>
+                      <th scope="col">Edit</th>
                     </tr>
                 </thead>
-                <!-- {% for product in products %}
+                {% for e in employee %}
                 <tbody>
                     <tr>
-                        <th scope="row">{{ product.pid }}</th>
-                        <td>{{ product.name }}</td>
-                        <td>{{ product.author }}</td>
-                        <td>{{ product.price }}</td>
+                        <th scope="row">{{ e.name }}</th>
+                        <td>{{ e.age }}</td>
+                        <td>{{ e.create_time }}</td>
+                        <td>{{ e.depart }}</td>
+                        <td>{{ e.gender }}</td>
+                        <td>{{ e.mobile_number }}</td>
                         <td>
-                            <a href="{% url 'editor_update_product' product.pid %}" class="edit-link">Update</a>
+                            {{ e.street_address1 }},
+                            {{ e.city }}
+                        </td>
+                        <td>
+                            <a href="" class="edit-link">Update</a>
                             <span>|</span>
-                            <a href="{% url 'editor_delete_product' product.pid %}" class="edit-link">Delete</a>
+                            <a href="" class="edit-link">Delete</a>
                         </td>
                     </tr>
                 </tbody>
-                {% endfor %} -->
+                {% endfor %}
             </table>
         </div>
         <div class="row">
