@@ -4,10 +4,12 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 import stripe
 import json
+from .models import StaffInfo
 from utils.pagination import Pagination
 from checkout.models import Order
 from products.models import Product, Category
 from products.forms import ProductForm
+
 
 
 
@@ -123,3 +125,21 @@ def editor_delete_product(request, pid):
     messages.success(request, 'Product has been deleted.')
 
     return redirect(reverse('editor_stock_list'))
+
+@login_required
+def staff_list(request):
+    """
+    A view to display the employee list for the shop
+    """
+    employee = StaffInfo.objects.all()
+    userinfo = request.user
+    page_object = Pagination(request, employee)
+
+    context = {
+        'userinfo': userinfo,
+        'products': page_object.page_queryset,
+        'page_string': page_object.html,
+        'employee': employee  
+    }
+    return render(request, 'editor/editor_staff_list.html', context)
+
