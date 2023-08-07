@@ -64,10 +64,11 @@ def editor_add_product(request):
                             'Please ensure the form is valid.'))
     else:
         form = ProductForm()
-
+    userinfo = request.user
     template = 'editor/editor_add_product.html'
     context = {
         'form': form,
+        'userinfo': userinfo
     }
 
     return render(request, template, context)
@@ -98,10 +99,12 @@ def editor_update_product(request, pid):
         messages.info(request, f'You are editing {product.name}')
 
     template = 'editor/editor_update_product.html'
+    userinfo = request.user
     context = {
         'form': form,
         'product': product,
         'categories_list': categories_list,
+        'userinfo': userinfo
     }
 
     return render(request, template, context)

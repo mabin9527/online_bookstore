@@ -86,6 +86,7 @@
 
 .user-info span{
     flex: 1;
+    color:#fff;
 }
 
 .user-info .icon{

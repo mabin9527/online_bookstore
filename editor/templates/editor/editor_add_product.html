@@ -27,10 +27,15 @@
                 <i class="fas fa-list pr-2"></i>
                 <a href="#"><span>Order List</span></a>
             </li>
+            <hr>
+            <li class="editor-item">
+                <i class="fas fa-arrow-left pr-2"></i>
+                <a href="{% url 'products_page' %}"><span>Back to Product Page</span></a>
+            </li>
         </ul>
         <div class="user-info">
-            <img src="{{ MEDIA_URL }}book-logo.jpg" alt="">
-            <span>{{ userinfo }}</span>
+            <img src="{{ MEDIA_URL }}book-logo.jpg" alt="admin-logo">
+            <a href="{% url 'profile' %}"><span>{{ userinfo }}</span></a>
         </div>
     </div>
     <div class="right-box container add_right-box">
@@ -48,7 +53,7 @@
         </div>
         <div class="row">
             <div class="col-12 col-md-6">
-                <form action="{% url 'editor_add_product' product.pid %}" method="POST" class="form mb-2" enctype="multipart/form-data">
+                <form action="{% url 'editor_add_product' %}" method="POST" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% for field in form %}
                         {% if field.name != 'image' %}
