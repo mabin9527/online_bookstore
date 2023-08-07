@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 import stripe
 import json
 from .models import StaffInfo
+from .forms import StaffInfoForm
 from utils.pagination import Pagination
 from checkout.models import Order
 from products.models import Product, Category
@@ -142,4 +143,40 @@ def staff_list(request):
         'employee': employee  
     }
     return render(request, 'editor/editor_staff_list.html', context)
+
+@login_required
+def staff_update_details(request,id):
+    """
+    Allow user to update the employee details
+    """
+    categories_list = Category.objects.all()
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Only Admins can do that.')
+        return redirect(reverse('home'))
+
+    staff = StaffInfo.objects.filter(id=id).first()
+    if request.method == 'POST':
+        form = StaffInfoForm(request.POST, instance=staff)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your personal details has been updated.')
+            return redirect('staff_list')
+        else:
+            messages.error(
+                request, 'Failed to update your personal details. Check form is valid.')
+    else:
+        form = StaffInfoForm(instance=staff)
+        messages.info(request, f'You are editing {staff.name}')
+
+    template = 'editor/update_staff_details.html'
+    userinfo = request.user
+    context = {
+        'form': form,
+        'staff': staff,
+        'categories_list': categories_list,
+        'userinfo': userinfo
+    }
+
+    return render(request, template, context)
 

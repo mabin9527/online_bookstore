@@ -38,7 +38,7 @@
             <a href="{% url 'profile' %}"><span>{{ userinfo }}</span></a>
         </div>
     </div>
-    <div class="right-box container">
+    <div class="right-box container add_right-box">
         <div class="top">
             <form method="GET" action="{% url 'search_product' %}">
                 <div class="input-group w-100">
@@ -51,58 +51,20 @@
                 </div>
             </form>
         </div>
-        <div class="table-responsive">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Age</th>
-                        <th scope="col">Hire Date</th>
-                        <th scope="col">Department</th>
-                        <th scope="col">Gender</th>
-                        <th scope="col">Mobile</th>
-                        <th scope="col">Address</th>
-                        <th scope="col">Edit</th>
-                    </tr>
-                </thead>
-                {% for e in employee %}
-                <tbody>
-                    <tr>
-                        <th scope="row">{{ e.id }}</th>
-                        <td>{{ e.name }}</td>
-                        <td>{{ e.age }}</td>
-                        <td>{{ e.create_time }}</td>
-                        <td>{{ e.depart }}</td>
-                        <td>{{ e.gender }}</td>
-                        <td>{{ e.mobile_number }}</td>
-                        <td>
-                            {{ e.street_address1 }},
-                            {{ e.city }}
-                        </td>
-                        <td>
-                            <a href="{% url 'staff_update_details' e.id %}" class="edit-link">Update</a>
-                            <span>|</span>
-                            <a href="" class="edit-link">Delete</a>
-                        </td>
-                    </tr>
-                </tbody>
-                {% endfor %}
-            </table>
-        </div>
         <div class="row">
-            <div class="col-xs-12">
-              <ul class="pagination fixed-bottom mb-5">
-                {{ page_string }}
-              </ul>
+            <div class="col-12 col-md-6">
+                <form action="{% url 'staff_update_details' staff.id %}" method="POST" class="form mb-2" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        {{ field | as_crispy_field }}
+                    {% endfor %}
+                    <div class="text-right">
+                        <button class="btn btn-success rounded" type="submit">Update Details</button>
+                        <a href="{% url 'staff_list' %}" class="btn btn-outline-dark rounded">Cancel</a>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="handler"></div>
     </div>
 </div>
-{% endblock %}
-
-{% block postloadjs %}
-    {{ block.super }}
-    <script src="{% static 'editor/js/editor.js' %}"></script>
 {% endblock %}
