@@ -48,7 +48,7 @@
         </div>
         <div class="row">
             <div class="col-12 col-md-6">
-                <form action="{% url 'editor_add_product' product.pid %}" method="POST" class="form mb-2" enctype="multipart/form-data">
+                <form action="{% url 'editor_update_product' product.pid %}" method="POST" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% for field in form %}
                         {% if field.name != 'image' %}
@@ -58,8 +58,8 @@
                         {% endif %}
                     {% endfor %}
                     <div class="text-right">
-                        <button class="btn btn-success rounded" type="submit">Add Product</button>
-                        <a href="{% url 'products_page' %}" class="btn btn-outline-dark rounded">Cancel</a>
+                        <button class="btn btn-success rounded" type="submit">Update Product</button>
+                        <a href="{% url 'editor_stock_list' %}" class="btn btn-outline-dark rounded">Cancel</a>
                     </div>
                 </form>
             </div>

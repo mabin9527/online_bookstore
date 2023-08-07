@@ -65,7 +65,7 @@
                         <td>{{ product.author }}</td>
                         <td>{{ product.price }}</td>
                         <td>
-                            <a href="" class="edit-link">Update</a>
+                            <a href="{% url 'editor_update_product' product.pid %}" class="edit-link">Update</a>
                             <span>|</span>
                             <a href="#" class="edit-link">Delete</a>
                         </td>

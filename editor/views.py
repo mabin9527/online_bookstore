@@ -1,12 +1,12 @@
 from django.conf import settings
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 import stripe
 import json
 from utils.pagination import Pagination
 from checkout.models import Order
-from products.models import Product
+from products.models import Product, Category
 from products.forms import ProductForm
 
 
@@ -72,4 +72,36 @@ def editor_add_product(request):
 
     return render(request, template, context)
 
+@login_required
+def editor_update_product(request, pid):
+    """
+    Allow user to update the product details
+    """
+    categories_list = Category.objects.all()
 
+    if not request.user.is_superuser:
+        messages.error(request, 'Only Admins can do that.')
+        return redirect(reverse('home'))
+
+    product = get_object_or_404(Product, pk=pid)
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Product has been updated.')
+            return redirect(reverse('editor_stock_list'))
+        else:
+            messages.error(
+                request, 'Failed to update product. Check form is valid.')
+    else:
+        form = ProductForm(instance=product)
+        messages.info(request, f'You are editing {product.name}')
+
+    template = 'editor/editor_update_product.html'
+    context = {
+        'form': form,
+        'product': product,
+        'categories_list': categories_list,
+    }
+
+    return render(request, template, context)
