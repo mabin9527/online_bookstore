@@ -67,7 +67,7 @@
                         <td>
                             <a href="{% url 'editor_update_product' product.pid %}" class="edit-link">Update</a>
                             <span>|</span>
-                            <a href="#" class="edit-link">Delete</a>
+                            <a href="{% url 'editor_delete_product' product.pid %}" class="edit-link">Delete</a>
                         </td>
                     </tr>
                 </tbody>

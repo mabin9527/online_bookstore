@@ -105,3 +105,18 @@ def editor_update_product(request, pid):
     }
 
     return render(request, template, context)
+
+@login_required
+def editor_delete_product(request, pid):
+    """
+    Delete product from the shop
+    """
+    if not request.user.is_superuser:
+        messages.error(request, 'Only Admins owners can do that.')
+        return redirect(reverse('home'))
+
+    product = get_object_or_404(Product, pk=pid)
+    product.delete()
+    messages.success(request, 'Product has been deleted.')
+
+    return redirect(reverse('editor_stock_list'))
