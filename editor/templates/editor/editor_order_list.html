@@ -52,28 +52,31 @@
             </form>
         </div>
         <div class="table-responsive">
-            <table class="table">
+            <table class="table order-list">
                 <thead>
                     <tr>
-                      <th scope="col">ID</th>
-                      <th scope="col">Name</th>
-                      <th scope="col">Author</th>
-                      <th scope="col">Price</th>
-                      <th scope="col">Edit</th>
+                        <th scope="col">Order Number</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Contact Number</th>
+                        <th scope="col">Email</th>
+                        <th scope="col" class="order-address">Address</th>
+                        <th scope="col" class="order-date">Order Date</th>
+                        <th scope="col">Payment Status</th>
                     </tr>
                 </thead>
-                {% for product in products %}
+                {% for order in orders %}
                 <tbody>
                     <tr>
-                        <th scope="row">{{ product.pid }}</th>
-                        <td>{{ product.name }}</td>
-                        <td>{{ product.author }}</td>
-                        <td>{{ product.price }}</td>
+                        <th scope="row" class="order-number">{{ order.order_number }}</th>
+                        <td>{{ order.full_name }}</td>
+                        <td>{{ order.mobile_number }}</td>
+                        <td>{{ order.email_address }}</td>
                         <td>
-                            <a href="{% url 'editor_update_product' product.pid %}" class="edit-link">Update</a>
-                            <span>|</span>
-                            <a href="{% url 'editor_delete_product' product.pid %}" class="edit-link">Delete</a>
+                            {{ order.street_address1 }},
+                            {{ order.city}}
                         </td>
+                        <td>{{ order.date }}</td>
+                        <td>{{ payment_intent.status }}</td>
                     </tr>
                 </tbody>
                 {% endfor %}
@@ -94,4 +97,11 @@
 {% block postloadjs %}
     {{ block.super }}
     <script src="{% static 'editor/js/editor.js' %}"></script>
+    <script>
+        $(document).ready(function() {
+            $(".order-number").click(function() {
+            $(this).toggleClass("expanded");
+            });
+        });
+    </script>
 {% endblock %}

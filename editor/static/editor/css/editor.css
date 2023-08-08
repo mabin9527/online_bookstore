@@ -191,3 +191,17 @@
 .right-box .top .add {
     line-height: 40px;
 }
+
+.order-list .order-number {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 150px; 
+    cursor: pointer;
+}
+
+.order-list .expanded {
+    white-space: normal;
+    text-overflow: initial;
+    max-width: fit-content;
+}
