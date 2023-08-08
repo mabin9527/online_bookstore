@@ -213,7 +213,6 @@ def staff_add(request):
         'form': form,
         'userinfo': userinfo
     }
-
     return render(request, template, context)
 
 @login_required
@@ -228,7 +227,6 @@ def editor_order_list(request):
     products = Product.objects.all()
     userinfo = request.user
     page_object = Pagination(request, products)
-    print(payment_intent.status)
     context = {
         'userinfo': userinfo,
         'products': page_object.page_queryset,

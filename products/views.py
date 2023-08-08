@@ -4,7 +4,6 @@ from django.db.models import Q
 from django.db.models.functions import Lower
 
 from django.contrib.auth.decorators import login_required
-
 from .models import Product, Category
 from .forms import ProductForm
 
@@ -81,10 +80,10 @@ def search(request):
     current_sort = f'{sort}_{direction}'
 
     context = {
-        'products': products,
         'search_term': book_info,
         'categories_list': categories_list,
-        'current_sort': current_sort
+        'current_sort': current_sort,
+        'products': products,
     }     
     return render(request, 'products/search_product.html', context)   
 

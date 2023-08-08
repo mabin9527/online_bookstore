@@ -1,5 +1,8 @@
 from django.db import models
 
+# Models for eidtor 
+
+
 class StaffInfo(models.Model):
     """
     Staff

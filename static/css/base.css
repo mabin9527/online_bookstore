@@ -420,31 +420,6 @@ input[name="a"]::placeholder {
     border-radius: 0;
 }
 
-/* pagination style */
-
-.pagination {
-    display: flex;
-    justify-content: center;
-}
-
-.pagination li {
-    font-size: 20px;
-}
-
-.pagination li a {
-    font-family:Georgia, 'Times New Roman', Times, serif;
-}
-
-.pagination li:not(:last-child) {
-    padding: 5px;
-    line-height: 35px;
-}
-
-.pagination .search-form {
-    display: flex;
-}
-
-
 /* Media Queries */
 
 /* Slightly larger container on xl screens */
