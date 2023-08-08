@@ -39,8 +39,14 @@
         </div>
     </div>
     <div class="right-box container">
-        <div class="top">
-            <form method="GET" action="{% url 'search_product' %}">
+        <div class="top row d-flex justify-content-between">
+            <div class="col-4 add">
+                <a href="{% url 'staff_add' %}" class="edit-link">
+                    <i class="fas fa-user-plus"></i>
+                    <span class="pl-2">Add New Employee</span>
+                </a>
+            </div>
+            <form method="GET" action="{% url 'search_product' %}" class="col-4">
                 <div class="input-group w-100">
                     <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search...">
                     <div class="input-group-append">
@@ -83,7 +89,7 @@
                         <td>
                             <a href="{% url 'staff_update_details' e.id %}" class="edit-link">Update</a>
                             <span>|</span>
-                            <a href="" class="edit-link">Delete</a>
+                            <a href="{% url 'staff_delete' e.id %}" class="edit-link">Delete</a>
                         </td>
                     </tr>
                 </tbody>

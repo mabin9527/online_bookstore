@@ -180,3 +180,45 @@ def staff_update_details(request,id):
 
     return render(request, template, context)
 
+@login_required
+def staff_delete(request, id):
+    """
+    Delete employee from the shop
+    """
+    if not request.user.is_superuser:
+        messages.error(request, 'Only Admins owners can do that.')
+        return redirect(reverse('home'))
+
+    staff = get_object_or_404(StaffInfo, pk=id)
+    staff.delete()
+    messages.success(request, 'Employee has been deleted.')
+
+    return redirect(reverse('staff_list'))
+
+@login_required
+def staff_add(request):
+    """ Add employee to the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        form = StaffInfoForm(request.POST, request.FILES)
+        if form.is_valid():
+            staff = form.save()
+            messages.success(request, 'Successfully added a new employee!')
+            return redirect(reverse('staff_list'))
+        else:
+            messages.error(request,
+                           ('Failed to add the new employee. '
+                            'Please ensure the form is valid.'))
+    else:
+        form = StaffInfoForm()
+    userinfo = request.user
+    template = 'editor/add_staff.html'
+    context = {
+        'form': form,
+        'userinfo': userinfo
+    }
+
+    return render(request, template, context)

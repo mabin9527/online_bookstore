@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'editor/css/editor.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="editor-container">
+    <div class="left-box">
+        <ul>
+            <h5 class="text-center">Welcome Back!</h5>
+            <hr>
+            <li class="editor-item mt-3">
+                <i class="fas fa-book pr-2"></i>
+                <a href="{% url 'editor_stock_list' %}"><span>Product List</span></a>
+            </li>
+            <li class="editor-item">
+                <i class="fas fa-pen pr-2"></i>
+                <a href="{% url 'editor_add_product' %}"><span>Add New Product</span></a>
+            </li>
+            <li class="editor-item">
+                <i class="fas fa-address-book pr-2"></i>
+                <a href="{% url 'staff_list' %}"><span>Staff List</span></a>
+            </li>
+            <li class="editor-item">
+                <i class="fas fa-list pr-2"></i>
+                <a href="#"><span>Order List</span></a>
+            </li>
+            <hr>
+            <li class="editor-item">
+                <i class="fas fa-arrow-left pr-2"></i>
+                <a href="{% url 'products_page' %}"><span>Back to Product Page</span></a>
+            </li>
+        </ul>
+        <div class="user-info">
+            <img src="{{ MEDIA_URL }}book-logo.jpg" alt="admin-logo">
+            <a href="{% url 'profile' %}"><span>{{ userinfo }}</span></a>
+        </div>
+    </div>
+    <div class="right-box container add_right-box">
+        <div class="top">
+            <form method="GET" action="{% url 'search_product' %}">
+                <div class="input-group w-100">
+                    <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search...">
+                    <div class="input-group-append">
+                        <button class="form-control btn btn-black border border-black rounded-0" type="submit">
+                            Search
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <form action="{% url 'staff_add' %}" method="POST" class="form mb-2" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        {{ field | as_crispy_field }}
+                    {% endfor %}
+                    <div class="text-right">
+                        <button class="btn btn-success rounded" type="submit">Add Employee</button>
+                        <a href="{% url 'staff_list' %}" class="btn btn-outline-dark rounded">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

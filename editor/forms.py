@@ -38,5 +38,6 @@ class StaffInfoForm(forms.ModelForm):
             'county': 'County or state for the staff',
         }
         self.fields['mobile_number'].widget.attrs['autofocus'] = True
+        self.fields['create_time'].widget = forms.DateInput(attrs={'type': 'date'})
         for field in self.fields:
             self.fields[field].label
