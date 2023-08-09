@@ -43,7 +43,7 @@
                         <div class="purchase-item">
                             {% for item in basket_items %}
                             <div class="row">
-                                <div class="col-sm-5">
+                                <div class="col-12 col-sm-5">
                                     <div class="btn-flex purchase-item_container">
                                         <div class="basket-page_img-container">
                                             {% if item.product.image %}
@@ -63,16 +63,16 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-2">
+                                <div class="col-3 col-sm-2 qty-input">
                                     {% include "basket/quantity_form.html" %}
                                 </div>
                                 <div class="col-sm-2">
-                                    <div class="basket-page_price text-center font-weight-bold">
+                                    <div class="basket-page_price text-center font-weight-bold item-price">
                                         $ {{ item.product.price }}
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
-                                    <div class="basket-page_price text-center font-weight-bold">
+                                    <div class="basket-page_price text-center font-weight-bold cal-price">
                                         $ {{ item.product.price | calc_subtotal:item.quantity }} 
                                     </div>
                                 </div>

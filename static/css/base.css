@@ -490,4 +490,39 @@ input[name="a"]::placeholder {
     }
 }
 
+@media (max-width: 600px) {
+
+    .basket-page_hearder-bar {
+        display: none;
+    }
+
+    .cal-price {
+        display: none;
+    }
+
+    .purchase-item .row .qty-input {
+        position: relative;
+        left: 118px;
+        top: -40px;
+    }
+
+    .purchase-item .row .qty-input a {
+        display: inline-block;
+        position: relative;
+        left: 70px;
+        top: -42px;
+    }
+
+    .purchase-item .row .item-price {
+        position: relative;
+        left: 120px;
+        top: -117px;
+        color: red;
+    }
+
+    .purchase-item {
+        height: 200px;
+    }
+}
+
 
