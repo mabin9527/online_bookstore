@@ -68,7 +68,6 @@ def adjust_basket(request, pid):
         messages.success(
             request, f'Removed {product.name} from your basket'
             )
-    
     request.session['basket'] = basket
     return redirect(reverse('view_basket'))
 
