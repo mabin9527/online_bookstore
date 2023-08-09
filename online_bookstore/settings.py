@@ -185,7 +185,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 if 'USE_AWS' in os.environ:
-    AWS_STORAGE_BUCKET_NAME = 'mabin9527-online-bookstore'
+    AWS_STORAGE_BUCKET_NAME = 'mabin-online-bookstore'
     AWS_S3_REGION_NAME = 'eu-west-1'
     AWS_ACCESS_KEY = os.environ.get('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
