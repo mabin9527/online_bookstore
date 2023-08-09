@@ -1,5 +1,7 @@
 from django.contrib import messages
-from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
+from django.shortcuts import (
+    render, redirect, reverse, HttpResponse, get_object_or_404
+    )
 from products.models import Product, Category
 
 
@@ -15,6 +17,7 @@ def view_basket(request):
     }
     return render(request, 'basket/basket.html', context)
 
+
 def add_to_basket(request, pid):
     """
     A view to add a quantity of the specified product to the shopping basket
@@ -27,14 +30,19 @@ def add_to_basket(request, pid):
         return redirect(reverse('view_basket'))
     if pid in list(basket.keys()):
         basket[pid] += quantity
-        messages.success(request, f'Updated {product.name} quantity to {basket[pid]}')
+        messages.success(
+            request, f'Updated {product.name} quantity to {basket[pid]}'
+            )
     else:
         basket[pid] = quantity
-        messages.success(request, f'Added {product.name} to your basket')
+        messages.success(
+            request, f'Added {product.name} to your basket'
+            )
     request.session['basket'] = basket
 
     # redirect the current page
     return redirect(request.META['HTTP_REFERER'])
+
 
 def adjust_basket(request, pid):
     """
@@ -44,17 +52,26 @@ def adjust_basket(request, pid):
     quantity = int(request.POST.get('quantity'))
     basket = request.session.get('basket', {})
     if not product:
-        messages.error(request, 'Product does not exist')
-        return redirect(reverse('view_basket'))
+        messages.error(
+            request, 'Product does not exist'
+            )
+        return redirect(
+            reverse('view_basket')
+            )
     if quantity > 0:
         basket[pid] = quantity
-        messages.success(request, f'Updated {product.name} quantity to {basket[pid]}')
+        messages.success(
+            request, f'Updated {product.name} quantity to {basket[pid]}'
+            )
     else:
         basket.pop(pid)
-        messages.success(request, f'Removed {product.name} from your basket')
+        messages.success(
+            request, f'Removed {product.name} from your basket'
+            )
     
     request.session['basket'] = basket
     return redirect(reverse('view_basket'))
+
 
 def remove_from_basket(request, pid):
     """Remove the item from the shopping bag"""
@@ -63,10 +80,14 @@ def remove_from_basket(request, pid):
         basket = request.session.get('basket', {})
         basket.pop(pid)
         print(basket)
-        messages.success(request, f'Removed {product.name} from your bag')
+        messages.success(
+            request, f'Removed {product.name} from your bag'
+            )
         request.session['basket'] = basket
         return HttpResponse(status=200)
 
     except Exception as e:
-        messages.error(request, f'Error removing item: {e}')
+        messages.error(
+            request, f'Error removing item: {e}'
+            )
         return HttpResponse(status=500)

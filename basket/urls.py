@@ -6,8 +6,8 @@ urlpatterns = [
     path('add/<pid>/', views.add_to_basket, name='add_to_basket'),
     path('adjust/<pid>', views.adjust_basket, name='adjust_basket'),
     path(
-    'remove/<pid>/',
-    views.remove_from_basket,
-    name='remove_from_basket'
+        'remove/<pid>/',
+        views.remove_from_basket,
+        name='remove_from_basket'
     ),
 ]

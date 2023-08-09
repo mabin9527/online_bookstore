@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from .models import UserProfile
 from .forms import UserProfileForm
 from checkout.models import Order
-from products.models import Product, Category
+from products.models import Category
 
 
 @login_required

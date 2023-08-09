@@ -100,7 +100,7 @@ class OrderLineItem(models.Model):
     The model for web order line item
     """
     order = models.ForeignKey(
-        Order, null=False, blank=False, 
+        Order, null=False, blank=False,  
         on_delete=models.CASCADE, related_name='lineitems'
         )
     product = models.ForeignKey(
@@ -121,6 +121,7 @@ class OrderLineItem(models.Model):
         blank=False,
         editable=False
         )
+
     def save(self, *args, **kwargs):
         """
         Override the original save method to set the lineitem total
@@ -128,5 +129,6 @@ class OrderLineItem(models.Model):
         """
         self.lineitem_total = self.product.price * self.quantity
         super().save(*args, **kwargs)
+        
     def __str__(self):
         return f'Name {self.product.name} on order {self.order.order_number}'

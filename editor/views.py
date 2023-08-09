@@ -3,15 +3,12 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 import stripe
-import json
 from .models import StaffInfo
 from .forms import StaffInfoForm
 from utils.pagination import Pagination
 from checkout.models import Order
 from products.models import Product, Category
 from products.forms import ProductForm
-
-
 
 
 @login_required
@@ -24,6 +21,7 @@ def editor_index(request):
         'userinfo': userinfo,
     }
     return render(request, 'editor/editor_index.html', context)
+
 
 @login_required
 def editor_stock_list(request):
@@ -40,6 +38,7 @@ def editor_stock_list(request):
         'page_string': page_object.html     
     }
     return render(request, 'editor/editor_stock_list.html', context)
+
 
 @login_required
 def editor_add_product(request):
@@ -68,6 +67,7 @@ def editor_add_product(request):
     }
 
     return render(request, template, context)
+
 
 @login_required
 def editor_update_product(request, pid):
@@ -105,6 +105,7 @@ def editor_update_product(request, pid):
 
     return render(request, template, context)
 
+
 @login_required
 def editor_delete_product(request, pid):
     """
@@ -119,6 +120,7 @@ def editor_delete_product(request, pid):
     messages.success(request, 'Product has been deleted.')
 
     return redirect(reverse('editor_stock_list'))
+
 
 @login_required
 def staff_list(request):
@@ -136,6 +138,7 @@ def staff_list(request):
         'employee': employee  
     }
     return render(request, 'editor/editor_staff_list.html', context)
+
 
 @login_required
 def staff_update_details(request,id):
@@ -157,7 +160,8 @@ def staff_update_details(request,id):
             return redirect('staff_list')
         else:
             messages.error(
-                request, 'Failed to update your personal details. Check form is valid.')
+                request, 'Failed to update your personal details. Check form is valid.'
+                )
     else:
         form = StaffInfoForm(instance=staff)
         messages.info(request, f'You are editing {staff.name}')
@@ -170,8 +174,8 @@ def staff_update_details(request,id):
         'categories_list': categories_list,
         'userinfo': userinfo
     }
-
     return render(request, template, context)
+
 
 @login_required
 def staff_delete(request, id):
@@ -187,6 +191,7 @@ def staff_delete(request, id):
     messages.success(request, 'Employee has been deleted.')
 
     return redirect(reverse('staff_list'))
+
 
 @login_required
 def staff_add(request):
@@ -214,6 +219,7 @@ def staff_add(request):
         'userinfo': userinfo
     }
     return render(request, template, context)
+
 
 @login_required
 def editor_order_list(request):

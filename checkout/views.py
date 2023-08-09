@@ -72,8 +72,7 @@ def checkout(request):
                         "Please call us for assistance!")
                     )
                     order.delete()
-                    return redirect(reverse('view_basket'))
-                
+                    return redirect(reverse('view_basket'))                
         # Save the info to the user's profile if all is well
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(
@@ -89,7 +88,6 @@ def checkout(request):
             messages.error(
                 request, "There's nothing in your basket at the moment")
             return redirect(reverse('products_page'))
-    
     current_basket = basket_contents(request)
     total = current_basket['grand_total']
     stripe_total = round(total * 100)
@@ -101,7 +99,7 @@ def checkout(request):
 
     order_form = OrderForm()
 
-        # Prefill the form with info from the user profile
+    # Prefill the form with info from the user profile
     if request.user.is_authenticated:
         try:
             profile = UserProfile.objects.get(user=request.user)
@@ -131,6 +129,7 @@ def checkout(request):
         'client_secret': intent.client_secret,
     }
     return render(request, template, context)
+
 
 def checkout_success(request, order_number):
     """
@@ -175,6 +174,3 @@ def checkout_success(request, order_number):
     }
 
     return render(request, template, context)
-
-
-

@@ -7,7 +7,6 @@ import stripe
 from checkout.webhook_handler import StripeWH_Handler
 
 
-
 # From walkthrough project webhooks.py
 @require_POST
 @csrf_exempt
@@ -55,3 +54,4 @@ def webhook(request):
     # Call the event handler with the event
     response = event_handler(event)
     return response
+    

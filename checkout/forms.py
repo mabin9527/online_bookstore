@@ -6,9 +6,9 @@ class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
         fields = (
-        'full_name', 'email_address', 'mobile_number', 
-        'street_address1', 'street_address2',
-        'city', 'county', 'postcode', 'country',
+            'full_name', 'email_address', 'mobile_number', 
+            'street_address1', 'street_address2',
+            'city', 'county', 'postcode', 'country',
         )
 
     def __init__(self, *args, **kwargs):
@@ -40,3 +40,4 @@ class OrderForm(forms.ModelForm):
                 self.fields[field].widget.attrs['aria-label'] = placeholders[
                     field]
                 self.fields[field].label = False
+                

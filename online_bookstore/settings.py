@@ -14,9 +14,7 @@ import os
 from pathlib import Path
 import dj_database_url
 if os.path.isfile("env.py"):
-   import env
-
-
+    import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,10 +31,14 @@ development = os.environ.get('DEVELOPMENT', False)
 DEBUG = True
 
 if development:
-    ALLOWED_HOSTS = ['localhost', 
-                     '8000-mabin9527-onlinebooksto-tp5stxvun6i.ws-eu102.gitpod.io']
+    ALLOWED_HOSTS = [
+        'localhost', 
+        '8000-mabin9527-onlinebooksto-tp5stxvun6i.ws-eu102.gitpod.io'
+        ]
 else:
-    ALLOWED_HOSTS = ['https://online-bookstore-13cd2c9ddb0f.herokuapp.com', '*']
+    ALLOWED_HOSTS = [
+        'https://online-bookstore-13cd2c9ddb0f.herokuapp.com', '*'
+        ]
 
 
 # Application definition
@@ -138,9 +140,6 @@ else:
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
-
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

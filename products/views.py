@@ -1,11 +1,11 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import (
+    render, reverse, get_object_or_404, HttpResponseRedirect
+    )
 from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
 
-from django.contrib.auth.decorators import login_required
 from .models import Product, Category
-from .forms import ProductForm
 
 
 def products(request):
@@ -22,6 +22,7 @@ def products(request):
     }
     return render(request, 'products/products.html', context)
 
+
 def product_detail(request):
     """
     View to show individual product details
@@ -32,6 +33,7 @@ def product_detail(request):
         'product': product,
     }
     return render(request, 'products/product_detail.html', context)
+
 
 def search(request):
     """
@@ -64,7 +66,7 @@ def search(request):
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
-    
+
     if request.GET:
         if 'q' in request.GET:
             book_info = request.GET['q']
@@ -86,8 +88,6 @@ def search(request):
         'products': products,
     }     
     return render(request, 'products/search_product.html', context)   
-
-
-
+    
 
 
