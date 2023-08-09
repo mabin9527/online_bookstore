@@ -1,0 +1,99 @@
+<script>
+    window.measure = ( originEle, rows, content, fixedContent, ellipsisStr ) => {
+    let ellipsisContainer = document.createElement('div'); 
+    ellipsisContainer.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(ellipsisContainer);
+
+
+    const originStyle = window.getComputedStyle(originEle);
+    const originCSS = styleToString(originStyle);
+    const lineHeight = pxToNumber(originStyle.lineHeight);
+    const maxHeight =
+    lineHeight * (rows + 1) +
+    pxToNumber(originStyle.paddingTop) +
+    pxToNumber(originStyle.paddingBottom);
+
+    {
+        ellipsisContainer.setAttribute('style', originCSS);
+        ellipsisContainer.style.position = 'fixed';
+        ellipsisContainer.style.left = '0';
+        ellipsisContainer.style.height = 'auto';
+        ellipsisContainer.style.minHeight = 'auto';
+        ellipsisContainer.style.maxHeight = 'auto';
+        ellipsisContainer.style.top = '-999999px';
+        ellipsisContainer.style.zIndex = '-1000';
+        ellipsisContainer.style.textOverflow = 'clip';
+        ellipsisContainer.style.whiteSpace = 'normal';
+        ellipsisContainer.style.webkitLineClamp = 'none';
+    }
+    
+    const wrapperStyle = `padding: 0;margin: 0;display: 'inline'; lineHeight: 'inherit';`;
+    ellipsisContainer.innerHTML = `<div style=${wrapperStyle}><span style=${wrapperStyle}>${content}</span></div>`;
+
+    if (inRange()) {
+        document.body.removeChild(ellipsisContainer);
+        return { content, text: ellipsisContainer.innerHTML, ellipsis: false };
+    }
+
+    ellipsisContainer.innerHTML = ``;
+    const ellipsisTextNode = document.createTextNode(ellipsisStr);
+    ellipsisContainer.appendChild(ellipsisTextNode);
+
+    const fixedContentNode = document.createTextNode(fixedContent);
+    ellipsisContainer.appendChild(fixedContentNode);
+
+    const textNode = document.createTextNode(content);
+    ellipsisContainer.appendChild(textNode);
+
+    const result = measureText(textNode, content);
+
+    document.body.removeChild(ellipsisContainer);
+    return {
+        content: ( result && result.reactNode ) || content,
+        ellipsis: true,
+    };
+
+    function inRange() {
+        return ellipsisContainer.offsetHeight < maxHeight;
+    }
+    function measureText( textNode, fullText, startLoc = 0, endLoc = fullText.length, lastSuccessLoc = 0 ) {
+    const midLoc = Math.floor((startLoc + endLoc) / 2);
+    const currentText = fullText.slice(0, midLoc);
+    textNode.textContent = currentText;
+        
+    if (startLoc >= endLoc - 1) {
+    for (let step = endLoc; step >= startLoc; step -= 1) {
+        const currentStepText = fullText.slice(0, step);
+        textNode.textContent = currentStepText;
+        if (inRange()) {
+        return step === fullText.length
+            ? {
+                finished: false,
+                reactNode: fullText,
+            }
+            : {
+                finished: true,
+                reactNode: currentStepText,
+            };
+        }
+    }
+    }
+
+    if (inRange()) {
+    return measureText(textNode, fullText, midLoc, endLoc, midLoc);
+    }
+    return measureText(textNode, fullText, startLoc, midLoc, lastSuccessLoc);
+    }
+
+    function styleToString(style) {
+        const styleNames = Array.prototype.slice.apply(style);
+        return styleNames.map(name => `${name}: ${style.getPropertyValue(name)};`).join('');
+    }
+
+    function pxToNumber(value) {
+        if (!value) return 0;
+        const match = value.match(/^\d*(\.\d*)?/);
+        return match ? Number(match[0]) : 0;
+    }
+    }
+</script>
