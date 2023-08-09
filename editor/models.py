@@ -1,12 +1,9 @@
 from django.db import models
 
-# Models for eidtor 
+# Models for employee 
 
 
 class StaffInfo(models.Model):
-    """
-    Staff
-    """
     name = models.CharField(max_length=16)
     age = models.IntegerField(verbose_name='age')
     create_time = models.DateField(verbose_name='Hire Date')
