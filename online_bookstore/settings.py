@@ -36,7 +36,7 @@ if development:
     ALLOWED_HOSTS = ['localhost', 
                      '8000-mabin9527-onlinebooksto-tp5stxvun6i.ws-eu102.gitpod.io']
 else:
-    ALLOWED_HOSTS = ['online_bookstore.herokuapp.com', '*']
+    ALLOWED_HOSTS = ['https://online-bookstore-13cd2c9ddb0f.herokuapp.com', '*']
 
 
 # Application definition
@@ -190,7 +190,7 @@ if 'USE_AWS' in os.environ:
         'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
         'CacheControl': 'max-age=94608000',
     }
-    
+
     # Bucket Config
     AWS_STORAGE_BUCKET_NAME = 'mabin-online-bookstore'
     AWS_S3_REGION_NAME = 'eu-west-1'
