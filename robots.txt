@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://online-bookstore-13cd2c9ddb0f.herokuapp.com/sitemap.xml
