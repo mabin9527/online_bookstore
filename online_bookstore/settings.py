@@ -33,7 +33,7 @@ DEBUG = False
 if development:
     ALLOWED_HOSTS = [
         'localhost', 
-        '8000-mabin9527-onlinebooksto-tp5stxvun6i.ws-eu102.gitpod.io'
+        'https://mabin9527-onlinebooksto-67sfoxyg6o9.ws-eu102.gitpod.io/'
         ]
 else:
     ALLOWED_HOSTS = [
