@@ -17,10 +17,11 @@
     {% endblock %}
 
     {% block corecss %}
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato&display=swap">
       <link rel="stylesheet" href="{% static 'css/base.css' %}">
+      <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
     {% endblock %}
 
     <link rel="shortcut icon" href="/media/favicon.ico" type="image/x-icon">
@@ -155,10 +156,96 @@
 
     {% block content %}
     {% endblock %}
+
+    <footer class="container-wrapper">
+        <div class="container quotes-container content-container">
+            <section class="footer">
+                <div class="row">
+                    <div class="col-12 page-header mb-4">
+                        <h2 class="text-uppercase">Stay in touch:</h2>
+                        <hr class="block-divider block-divider--short">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                    <h3>Social</h3>
+                    <p>Keep up to date with all our latest offers</p>
+                    <a href="https://www.facebook.com/profile.php?id=61550090936485" target="_blank">
+                        <i class="fab fa-facebook-square"></i> 
+                        Follow us on Facebook
+                    </a>
+                    <h3 class="mt-5">Policy Terms</h3>
+                    <p>Please find our policy</p>
+                    <a href="https://www.freeprivacypolicy.com/live/137a3dd9-a4d4-459f-981c-156b015bd278" target="_blank">
+                        <i class="fas fa-book"></i>
+                        Privacy policy
+                    </a>
+                </div>
+                <div class="col-12 col-md-6">
+                    <h2>Subscribe!</h2>
+                    <p>Get exclusive offers and discount codes by subscribing to our monthly newsletter</p>
+                    <div id="mc_embed_shell">
+                        <div id="mc_embed_signup">
+                            <form action="https://herokuapp.us11.list-manage.com/subscribe/post?u=ae183c62b14a946b0925350a0&amp;id=a50b146fe0&amp;f_id=006395e0f0" 
+                                method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+                                <div id="mc_embed_signup_scroll">
+                                    <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+                                    <div class="mc-field-group">
+                                        <label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label><input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value="">
+                                    </div>
+                                    <div id="mce-responses" class="clear foot">
+                                        <div class="response" id="mce-error-response" style="display: none;"></div>
+                                        <div class="response" id="mce-success-response" style="display: none;"></div>
+                                    </div>
+                                    <div aria-hidden="true" style="position: absolute; left: -5000px;">
+                                        <!-- /* real people should not fill this in and expect good things - do not remove this or risk form bot
+                                        signups */ -->
+                                        <input type="text" name="b_ae183c62b14a946b0925350a0_a50b146fe0" tabindex="-1" value="">
+                                    </div>
+                                    <div class="optionalParent">
+                                        <div class="clear foot">
+                                            <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe">
+                                            <p style="margin: 0px auto;">
+                                                <a href="http://eepurl.com/ixx-tA" title="Mailchimp - email marketing made easy and fun">
+                                                    <span style="display: inline-block; background-color: transparent; border-radius: 4px;">
+                                                    </span>
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>  
+                    </div>
+                </div>
+            </section>
+        </div>
+    </footer>
     {% block postloadjs %}
           <!-- Toast Script -->
         <script type="text/javascript">
             $('.toast').toast('show');
+        </script>
+          <!-- Mailchimp Scripts -->
+        <script src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+        <script>
+            (function ($) {
+            window.fnames = new Array();
+            window.ftypes = new Array();
+            fnames[0] = 'EMAIL';
+            ftypes[0] = 'email';
+            fnames[1] = 'FNAME';
+            ftypes[1] = 'text';
+            fnames[2] = 'LNAME';
+            ftypes[2] = 'text';
+            fnames[3] = 'ADDRESS';
+            ftypes[3] = 'address';
+            fnames[4] = 'PHONE';
+            ftypes[4] = 'phone';
+            fnames[5] = 'BIRTHDAY';
+            ftypes[5] = 'birthday';
+            }(jQuery));
+            var $mcj = jQuery.noConflict(true);
         </script>
     {% endblock %}
   </body>
