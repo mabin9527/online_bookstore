@@ -251,5 +251,39 @@ The Online Bookstore employs Mailchimp as its mailing list management tool. When
 </details>
 
 
+##### Back to [top](#table-of-contents)<hr>
+
+## Wireframes
+I utilized Balsamiq to craft wireframes for my project. This user-friendly wireframing tool empowers me to swiftly generate mockups for my website or application. It provides an extensive array of pre-designed UI elements and fosters seamless collaboration within my team. I've included an image version of my wireframes, granting you access to review the design, layout, and project flow before translating it into the actual product.
+
+<details><summary>Wireframe Home</summary>  
+
+![Epics](media/wireframe-home.png)
+</details>
+
+<details><summary>Wireframe Homepage</summary>  
+
+![Epics](media/wireframe-homepage.png)
+</details>
+
+<details><summary>Wireframe Product Detail</summary>  
+
+![Epics](media/wireframe-detail.png)
+</details>
+
+<details><summary>Wireframe Checkout</summary>  
+
+![Epics](media/wireframe-checkout.png)
+</details>
+
+<details><summary>Wireframe Profile</summary>  
+
+![Epics](media/wireframe-profile.png)
+</details>
+
+<hr>
+
+
+
 
 
