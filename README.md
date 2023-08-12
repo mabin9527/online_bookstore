@@ -197,5 +197,59 @@ The Online Bookstore employs Mailchimp as its mailing list management tool. When
 
 ## User Stories
 
+### Registration and Accounts
+- As a shopper/ site user, I can register an account so that I can continue to check out the selected products./ I can have a personal account so that I can view my profile.
+- As a shopper/ site user, I can login and logout the account so that I can use the stored delivery information and check the purchase history./ I can login and logout of the account so that I can access my account.
+- As a shopper/ site user, I can reset the password so that I can recover my password when I forgot my password.
+- As a shopper/ site user, I can receive an email verification requirement so that I can verify my account.
+- As a shopper/ site user, I can use stored information so that I can make the payment faster.
+
+### Viewing and Navigation
+- As a shopper/ site user, I can use the navigation menu so that I can be linked across the website.
+- As a shopper/ site user, I can use the navigation link on the footer so that I can follow the store on Facebook to check the latest offer easily.
+- As a shopper/ site user, I can use the navigation link on the footer so that I can view the privacy policy.
+- As a shopper/ site user, I can sign up for the email so that I can get notified when any new books are published.
+- As a shopper/ site user, I can be notified by the login and logout status.
+- As a shopper, I can view the basket so that I can see my shopping list and the total amount of cost at any time.
+- As a shopper/ site user, I can click on the homepage so that I can view all categories of books available online.
+-As a shopper/ site user, I can click the individual product so that I can view the product details.
+
+### Search and Sort
+- As a shopper/ site user, I can use the search bar so that I can search for a product by name or description.
+- As a shopper/ site user, I can access to search result page so that I can see the search results.
+- As a shopper/ site user, I can click the sorting button so that I can view the search results by either price or name.
+
+### Purchase and Checkout
+- As a shopper/ site user, I can add the selected product to the basket so that I can complete the payment./ I can add my favorite books to the basket so that I can know the total cost of the purchase.
+- As a shopper/ site user, I can use the card to make a payment so that I can complete the purchase./ I can make a purchase by using the card after login.
+- As a shopper/ site user, I can use update and remove button so that I can either adjust the quantity of the basket or delete the orders.
+- As a shopper/ site user, I can view the order summary so that I can know my order list.
+- As a shopper/ site user, I can get a confirmation email so that I can get a record of the purchase.
+
+### Store management and Admin
+- As a store owner/ admin, I can add new products to the store.
+- As a store owner/ admin, I can update information for the existing products in the store.
+- As a store owner/ admin, I can delete the products from the shop.
+- As a store owner/ admin, I can check the order list from the customers so that I can make a shipment when the payment status is successful.
+- As a store owner/ admin, I can add a new employee to the store.
+- As a store owner/ admin, I can update the employees' information.
+- As a store owner/ admin, I can delete the employee who has left their jobs.
+- As a store owner/ admin, I can check the personal information of employees.
+
+### Kanban & User Stories
+- The GitHub Kanban board was employed to monitor the status of all active user stories.
+- Within the Kanban board, columns titled Backlog, In Progress, and Done were employed for effective organization.
+
+<details><summary>User Stories</summary>
+
+![User stories](media/user-stories.png)
+</details>
+
+<details><summary>Kanban</summary>
+
+![Kanban](media/kanban.png)
+</details>
+
+
 
 
