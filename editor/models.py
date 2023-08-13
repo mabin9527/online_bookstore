@@ -28,3 +28,4 @@ class StaffInfo(models.Model):
         (2, 'Female'),
     )
     gender = models.SmallIntegerField(choices=gender_choices)
+

@@ -129,6 +129,6 @@ class OrderLineItem(models.Model):
         """
         self.lineitem_total = self.product.price * self.quantity
         super().save(*args, **kwargs)
-        
+     
     def __str__(self):
         return f'Name {self.product.name} on order {self.order.order_number}'

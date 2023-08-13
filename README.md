@@ -42,10 +42,6 @@
   - [Features](#features)
   - [Validation](#validation)
   - [Testing](#testing)
-    - [Manual testing](#manual-testing)
-    - [Automated testing](#automated-testing)
-    - [Tests on various devices](#tests-on-various-devices)
-    - [Browser compatibility](#browser-compatibility)
   - [Bugs](#bugs)
   - [Deployment](#deployment)
   - [Credits](#credits)
@@ -670,13 +666,401 @@ I've incorporated meta tags within the HTML of my web application's pages to enh
 
 ##### Back to [top](#table-of-contents)<hr>
 
+# Validation  
+
+## HTML Validation
+
+The W3C Markup Validation Service was used to validate the HTML of the website. There was no errors found.
 
 
+<details><summary>Home</summary>
+
+![Home](static/images/validation/validation-html-home.png)
+</details>
+
+<details><summary>Homepage</summary>
+
+![Homepage](static/images/validation/validation-html-products.png)
+</details>
+
+<details><summary>Product Detail</summary>
+
+![Product detail](static/images/validation/validation-html-products-detail.png)
+</details>
+
+<details><summary>Search Product</summary>
+
+![Search product](static/images/validation/validation-html-product-search.png)
+</details>
+
+<details><summary>Basket</summary>
+
+![Basket](static/images/validation/validation-html-bakset.png)
+</details>
+
+<details><summary>Checkout</summary>
+
+![Checkout](static/images/validation/validation-html-checkout.png)
+</details>
+
+<details><summary>Checkout Success</summary>
+
+![Checkout success](static/images/validation/validation-html-checkout-success.png)
+</details>
+
+<details><summary>Profile</summary>
+
+![Profile](static/images/validation/validation-html-profile.png)
+</details>
+
+<details><summary>Editor</summary>
+
+![Editor](static/images/validation/validation-html-editor.png)
+</details>
+
+<details><summary>Product List</summary>
+
+![Product list](static/images/validation/validation-html-stock-list.png)
+</details>
+
+<details><summary>Add Product</summary>
+
+![Add product](static/images/validation/validation-html-add-product.png)
+</details>
+
+<details><summary>Employee List</summary>
+
+![Employee list](static/images/validation/validation-html-staff-list.png)
+</details>
+
+<details><summary>Add Employee</summary>
+
+![Add employee](static/images/validation/validation-html-add-employee.png)
+</details>
+
+<details><summary>Order List</summary>
+
+![Order list](static/images/validation/validation-html-order-list.png)
+</details>
+
+### CSS Validation
+The W3C Jigsaw CSS Validation Service validated the website's CSS. There was no errors found.
+
+<details><summary>Base.css</summary>
+
+![Base.css](static/images/validation/validation-base-css.png)
+</details>
+
+<details><summary>Checkout.css</summary>
+
+![Checkout.css](static/images/validation/validation-checkout-css.png)
+</details>
+
+<details><summary>Profile.css</summary>
+
+![Profile.css](static/images/validation/validation-profile-css.png)
+</details>
+
+<details><summary>Editor.css</summary>
+
+![Editor.css](static/images/validation/validation-editor-css.png)
+</details>
+
+### JavaScript Validation
+JSHint JavaScript Validation Service was used to validate all JavaScript files. 
+
+<details><summary>Country_field.js</summary>
+
+![Country_field.js](static/images/validation/validation-js-country_field.png)
+</details>
+
+<details><summary>Editor.js</summary>
+
+![Editor.js](static/images/validation/validation-js-editor.png)
+</details>
+
+<details><summary>Fold.js</summary>
+
+![Fold.js](static/images/validation/validation-js-fold.png)
+</details>
+
+<details><summary>Quantity_form.js</summary>
+
+![Quantity_form.js](static/images/validation/validation-js-quantity-form.png)
+</details>
+
+<details><summary>Stripe.js</summary>
+
+![Stripe.js](static/images/validation/validation-js-stripe.png)
+</details>
+
+##### Back to [top](#table-of-contents)<hr>  
+
+## PEP8 Validation
+[CI Python Linter](https://pep8ci.herokuapp.com/) was used to check the code for PEP8 requirements.
+
+<summary>Basket</summary>
+
+<details><summary>basekt_tools.py</summary>
+
+![baset_tools.py](static/images/validation/pep8-basket-tools.png)
+</details>
+
+<details><summary>test.py</summary>
+
+![test.py](static/images/validation/pep8-basket-test.png)
+</details>
+
+<details><summary>context.py</summary>
+
+![context.py](static/images/validation/pep8-basket-context.png)
+</details>
+
+<details><summary>views.py</summary>
+
+![views.py](static/images/validation/pep8-basket-views.png)
+</details>
 
 
+<summary>Checkout</summary>
+
+<details><summary>admin.py</summary>
+
+![admin.py](static/images/validation/pep8-checkout-admin.png)
+</details>
+
+<details><summary>form.py</summary>
+
+![form.py](static/images/validation/pep8-checkout-form.png)
+</details>
+
+<details><summary>models.py</summary>
+
+![models.py](static/images/validation/pep8-checkout-models.png)
+</details>
+
+<details><summary>test.py</summary>
+
+![test.py](static/images/validation/pep8-checkout-test.png)
+</details>
+
+<details><summary>views.py</summary>
+
+![views.py](static/images/validation/pep8-checkout-views.png)
+</details>
+
+<details><summary>webhook_handler.py</summary>
+
+![webhook_handler.py](static/images/validation/pep8-checkout-WBH.png)
+</details>
+
+<details><summary>signals.py</summary>
+
+![signals.py](static/images/validation/pep8-checkout-signals.png)
+</details>
+
+<details><summary>webhooks.py</summary>
+
+![webhooks.py](static/images/validation/pep8-checkout-webhooks.png)
+</details>
 
 
+<summary>Editor</summary>
+
+<details><summary>admin.py</summary>
+
+![admin.py](static/images/validation/pep8-editor-admin.png)
+</details>
+
+<details><summary>forms.py</summary>
+
+![forms.py](static/images/validation/pep8-editor-forms.png)
+</details>
+
+<details><summary>models.py</summary>
+
+![models.py](static/images/validation/pep8-editor-models.png)
+</details>
+
+<details><summary>views.py</summary>
+
+![views.py](static/images/validation/pep8-editor-views.png)
+</details>
 
 
+<summary>Home</summary>
+
+<details><summary>views.py</summary>
+
+![views.py](static/images/validation/pep8-home.png)
+</details>
+
+<summary>Products</summary>
+
+<details><summary>admin.py</summary>
+
+![admin.py](static/images/validation/pep8-products-admin.png)
+</details>
+
+<details><summary>forms.py</summary>
+
+![forms.py](static/images/validation/pep8-products-forms.png)
+</details>
+
+<details><summary>models.py</summary>
+
+![models.py](static/images/validation/pep8-products-models.png)
+</details>
+
+<details><summary>views.py</summary>
+
+![views.py](static/images/validation/pep8-products-views.png)
+</details>
+
+<details><summary>widgets.py</summary>
+
+![widgets.py](static/images/validation/pep8-products-widgets.png)
+</details>
+
+<summary>Profiles</summary>
+
+<details><summary>forms.py</summary>
+
+![forms.py](static/images/validation/pep8-profiles-forms.png)
+</details>
+
+<details><summary>models.py</summary>
+
+![models.py](static/images/validation/pep8-profiles-models.png)
+</details>
+
+<details><summary>views.py</summary>
+
+![views.py](static/images/validation/pep8-profiles-views.png)
+</details>
+
+
+<hr><summary>root</summary>
+
+<details><summary>custom_storages.py</summary>
+
+![custom_storages.py](static/images/validation/pep8-custom_storage.png)
+</details>  
+
+##### Back to [top](#table-of-contents)<hr> 
+
+
+## Lighthouse
+
+Performance, best practices, and SEO were evaluated using Lighthouse.
+
+#### Desktop
+
+<details><summary>Home</summary>
+
+![Home](static/images/validation/lighthouse-home.png)
+</details>
+
+<details><summary>Products</summary>
+
+![Products](static/images/validation/lighthouse-products.png)
+</details>
+
+<details><summary>Product Detail</summary>
+
+![Product Detail](static/images/validation/lighthouse-product-detail.png)
+</details>
+
+<details><summary>Product Search</summary>
+
+![Product search](static/images/validation/lighthouse-product-search.png)
+</details>
+
+<details><summary>Basket</summary>
+
+![Basket](static/images/validation/lighthouse-basket.png)
+</details>
+
+<details><summary>checkout</summary>
+
+![Checkout](static/images/validation/lighthouse-checkout.png)
+</details>
+
+<details><summary>profile</summary>
+
+![Profile](static/images/validation/lighthouse-profile.png)
+</details>
+
+##### Back to [top](#table-of-contents)<hr>
+
+## Testing
+
+- Testing was conducted utilizing the built-in Django module, unittest.
+
+##### Back to [top](#table-of-contents)<hr>
+
+## Bugs
+
+### Fixed bugs
+- The issue of increment and decrement functionality not working has been resolved by linking the respective buttons to a jQuery script. This solution ensures that users can now successfully adjust product quantities in the basket using the provided buttons.
+- Can't get the payment status. The problem stemmed from incorrect initial settings for both local and deployed endpoints. This issue has been addressed, rectifying the situation and subsequently enabling the successful execution of the payment intent.
+
+##### Back to [top](#table-of-contents)<hr>
+
+
+## Deployment  
+### AWS S3 Bucket Setup  
+
+To set up an AWS S3 bucket:
+
+1. Access the AWS Management Console and navigate to the Amazon S3 console.
+2. Click on the "Create Bucket" button. 
+3. Provide a distinct name for the bucket and choose the region in which you wish the bucket to be situated.
+4. Customize any extra settings according to the requirements, such as enabling versioning, configuring object-level logging, and applying object tags.
+5. Proceed by selecting the "Create" button to establish the bucket.
+6. Arrange the suitable permissions for the bucket, including access control lists (ACLs) and bucket policies, to manage data access permissions for authorized users.
+7. Upload files to the bucket through the AWS S3 console, the AWS S3 CLI, or the AWS S3 SDK.
+8. Retrieve the files via the AWS S3 Console, AWS S3 CLI, or the AWS S3 SDK.
+
+### Heroku 
+
+The website was deployed by following the steps below: 
+
+1. Log in [Heroku](https://id.heroku.com/login). 
+2. Click 'New' and select 'Create new app'
+3. Choose a name for the app, region and click on 'Create app'
+4. Only 'Deploy' and 'Settings' are relevant from the menu section. Starting with the 'Settings' first.
+5. Now Buildpacks need to be added. They install future dependencies that are needed outside of the requirements file. The first is Python and the second is node.js. Python needs to be selected first and then node.js. Save this selection.
+6. Now the 'Deploy' section needs to be selected from the menu and connect to Git Hub.
+7. Enter the name of the repository we want to connect it with and click 'Connect'
+8. The choice appears now to either deploy using automatic deploys or manual deployment, which deploys the current state of the branch.
+
+
+## Credits
+
+### Code  
+- I used the Code Institute's bag and checkout app as a foundation for developing my own checkout and basket applications.
+
+### Media
+
+<details><summary>Pexels</summary>
+
+[Pexels](https://www.pexels.com/)
+</details>
+
+<details><summary>Eason</summary>
+
+[Eason](https://www.easons.com/)
+</details>
+
+##### Back to [top](#table-of-contents)<hr>
+
+
+## Acknowledgments
+
+
+Many thanks to the student care from the Code Institute for assisting me to solve the bugs and give me suggestions to optimize my code. At the same, I want to thanks my family to support me in using my spare time to learn to code.
+
+##### Back to [top](#table-of-contents)<hr>
 
 

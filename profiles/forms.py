@@ -40,4 +40,5 @@ class UserProfileForm(forms.ModelForm):
                 self.fields[field].label = placeholders[field]
             else:
                 self.fields[field].label
+
                 

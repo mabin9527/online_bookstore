@@ -35,7 +35,7 @@ def editor_stock_list(request):
     context = {
         'userinfo': userinfo,
         'products': page_object.page_queryset,
-        'page_string': page_object.html     
+        'page_string': page_object.html
     }
     return render(request, 'editor/editor_stock_list.html', context)
 
@@ -135,13 +135,13 @@ def staff_list(request):
         'userinfo': userinfo,
         'products': page_object.page_queryset,
         'page_string': page_object.html,
-        'employee': employee  
+        'employee': employee
     }
     return render(request, 'editor/editor_staff_list.html', context)
 
 
 @login_required
-def staff_update_details(request,id):
+def staff_update_details(request, id):
     """
     Allow user to update the employee details
     """
@@ -156,7 +156,9 @@ def staff_update_details(request,id):
         form = StaffInfoForm(request.POST, instance=staff)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Your personal details has been updated.')
+            messages.success(
+                request, 'Your personal details has been updated.'
+                )
             return redirect('staff_list')
         else:
             messages.error(

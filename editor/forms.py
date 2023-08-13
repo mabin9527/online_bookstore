@@ -10,7 +10,7 @@ class StaffInfoForm(forms.ModelForm):
             'name', 'age', 'create_time', 'depart', 'gender', 'mobile_number',
             'street_address1', 'address2', 'city', 'county',
         ]
-        
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         placeholders = {
@@ -19,7 +19,7 @@ class StaffInfoForm(forms.ModelForm):
             'create_time': 'Hire Date',
             'depart': 'Department',
             'gender': 'Gender',
-            'mobile_number': 'Phone Number',          
+            'mobile_number': 'Phone Number',   
             'street_address1': 'Street Address 1',
             'address2': 'Street Address 2',
             'city': 'City',

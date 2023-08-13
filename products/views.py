@@ -73,7 +73,7 @@ def search(request):
             if not book_info:
                 messages.error(request, 'Please enter search criteria!')
                 return HttpResponseRedirect('/products')
-    
+
             queries = Q(name__icontains=book_info) | Q(
                 author__icontains=book_info) | Q(
                 description__icontains=book_info)
@@ -86,8 +86,8 @@ def search(request):
         'categories_list': categories_list,
         'current_sort': current_sort,
         'products': products,
-    }     
-    return render(request, 'products/search_product.html', context)   
+    }
+    return render(request, 'products/search_product.html', context)
     
 
 

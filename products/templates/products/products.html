@@ -65,13 +65,13 @@
     {% endfor %}
 
     <div class="payment-options text-center mt-4">
-        <img src="{{ MEDIA_URL }}payment-icons.webp" class="img-responsive">
+        <img src="{{ MEDIA_URL }}payment-icons.webp" class="img-responsive" alt="payment options">
     </div>
 {% endblock %}
 
 {% block postloadjs %}
 {% for category in categorys%}
-    <script type="text/javascript">
+    <script>
         $("#btn{{ category.cid }}").click(function() {
         var offsetValue = -200;
         // Scroll to the target title section smoothly
