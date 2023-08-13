@@ -283,6 +283,399 @@ I utilized Balsamiq to craft wireframes for my project. This user-friendly wiref
 
 <hr>
 
+## Design
+
+### Colors
+
+The white background and black font color has been used across the websites which will give the shoppers a simple and clean feeling. And gray is used for mouse-click links.
+
+<details><summary>See Color Palette</summary>
+
+![Color Palette](media/adobe-color.png)
+</details>
+
+### Fonts
+
+The font selected was from Google Fonts. "Lato" has been selected.
+
+# Structure
+
+- The website's layout was crafted to ensure user familiarity, featuring elements such as a navigation bar positioned at the top of each page, along with a hamburger menu button tailored for smaller screens.
+- Within the footer, you'll discover an array of pertinent social media links associated with the business. Additionally, the footer houses an email sign-up form, valuable links, and contact details.
+
+## Website pages
+
+- The site consists of the following pages:
+  - Home
+  - Homepage
+  - Product details
+  - Basket
+  - Checkout
+  - Checkout Success
+  - Register
+  - Profile
+  - Login
+  - Logout
+  - Reset Password
+  - Register
+  - Admin Management Panel
+  - 404
+
+  ##### Back to [top](#table-of-contents)
+  <hr>
+
+## AWS 
+
+I leverage AWS S3 buckets for data storage purposes. S3 stands as a remarkably scalable and resilient cloud storage solution offered by Amazon Web Services. This service grants me seamless storage and retrieval capabilities for substantial data volumes, enhanced further by its integrated security measures that bolster the safeguarding of my files. My preference for S3 is rooted in its exceptional scalability, robust durability, and comprehensive security attributes.
+
+## Database
+
+I constructed my database utilizing PostgreSQL, a potent and open-source object-relational database system recognized for its unwavering dependability, resilience, and exceptional performance. I opted for PostgreSQL due to its versatility, offering an efficient tool for adeptly administering and structuring my data.
+
+## Models  
+
+### Employee Model
+
+| Key        | Name           | Type        |
+| ---------- | ------------   | ----------- |
+| PrimaryKey | employee_id    | AutoField   |
+|            | name           | CharField   |
+|            | age            | IntegerField|
+|            | create_time    | DateField   |
+|            | depart         | CharField   |
+|            | mobile_number  | CharField   |
+|            | street_address1| CharField   |
+|            | address2       | CharField   |
+|            | city           | CharField   |
+|            | county         | CharField   |
+|            | gender         | SmallIntegerField|
+
+### User Model
+
+| Key        | Name         | Type        |
+| ---------- | ------------ | ----------- |
+| PrimaryKey | user_id      | AutoField   |
+|            | password     | VARCHAR     |
+|            | last_login   | VARCHAR     |
+|            | is_superuser | BOOLEAN     |
+|            | username     | VARCHAR     |
+|            | first_name   | VARCHAR     |
+|            | last_name    | VARCHAR     |
+|            | email        | VARCHAR     |
+|            | is_active    | BOOLEAN     |
+|            | date_joined  | VARCHAR     |
+
+### User Profile Model
+
+| Key        | Name                        | Type          |
+| ---------- | --------------------------- | ------------- |
+| PrimaryKey | user_profile_id             | AutoField     |
+| ForeignKey | user                        | User model    |
+|            | default_mobile_number       | CharField     |
+|            | default_street_address1     | CharField     |
+|            | default_street_address2     | CharField     |
+|            | default_city                | CharField     |
+|            | default_county              | CharField     |
+|            | default_postcode            | CharField     |
+|            | default_country             | CharField     |
+
+### Product Model
+
+| Key        | Name        | Type           |
+| ---------- | ----------- | -------------- |
+| PrimaryKey | pid         | AutoField      |
+|            | name        | CharField      |
+|            | author      | CharField      |
+|            | description | TextField      |
+|            | price       | DecimalField   |
+| ForeignKey | category    | Category model |
+|            | image       | ImageField     |
+
+### Category Model  
+
+| Key        | Name          | Type      |
+| ---------- | ------------- | --------- |
+| PrimaryKey | cid           | AutoField |
+|            | name          | CharField |
+|            | friendly_name | CharField |
+
+### Order Model  
+
+| Key        | Name            | Type               |
+| ---------- | --------------- | ------------------ |
+| PrimaryKey | order_id        | AutoField          |
+|            | order_number    | CharField          |
+| ForeignKey | user_profile    | User profile Model |
+|            | full_name       | CharField          |
+|            | email_address   | EmailField         |
+|            | mobile_number   | CharField          |
+|            | street_address1 | CharField          |
+|            | street_address2 | CharField          |
+|            | city            | CharField          |
+|            | postcode        | CharField          |
+|            | county          | CharField          |
+|            | country         | CharField          |
+|            | date            | DateTimeField      |
+|            | delivery_cost   | DecimalField       |
+|            | order_total     | DecimalField       |
+|            | grand_total     | DecimalField       |
+|            | original_basket | TextField          |
+|            | stripe_pid      | CharField          |
+
+### OrderLineItem Model  
+
+| Key        | Name             | Type            |
+| ---------- | ---------------- | --------------- |
+| PrimaryKey | OrderLineItem_id | AutoField       |
+| ForeignKey | order            | Order Model     |
+| ForeignKey | product          | Product Model   |
+|            | quantity         | IntegerField    |
+|            | line_item_total  | DecimalField    |
+
+##### Back to [top](#table-of-contents)
+<hr>
+
+
+## Technologies Used
+
+### Languages & Frameworks
+
+- HTML
+- CSS
+- Javascript
+- Python
+- Django
+
+##### Back to [top](#table-of-contents)
+<hr>
+
+
+## Features 
+
+### Search Engine Optimisation (SEO)
+I've incorporated meta tags within the HTML of my web application's pages to enhance their search engine optimization. The description tag succinctly outlines the page's content, while the keywords tag compiles pertinent keywords, aiding search engines in comprehending the webpage's substance and its significance in relation to relevant search queries.
+
+<details><summary>See feature image</summary>
+
+![SEO](media/SEO-img.png)
+</details> 
+
+### Home page
+- The home page includes a navigation button to different pages.
+
+<details><summary>See feature images</summary>
+
+![Home](media/readme-home.png)
+</details> 
+
+### Logo
+- Clear and clickable logo is attractive to shoppers.
+
+<details><summary>See feature images</summary>
+
+![Logo](media/readme-logo.png)
+![Logo](media/readme-logo-click.png)
+</details> 
+
+### Navigation
+- Fully Responsive.
+- Indicates login/logout in status.
+- Displayed the total cost when shoppers add the product to the basket.
+- Displayed on all pages.  
+- Delivery banner will show the customers our free-delivery policy arcoss all pages.
+
+<details><summary>See feature images</summary>
+
+![Navigation](media/readme-nav.png)
+![Navigation](media/readme-nav-mobile.png)
+</details>
+
+### Footer
+- Contains social media links, privacy policy, and sign-up email for subscription.
+- Displayed across all pages. 
+- Payment options will give the shoppers various selections to pay their bills.
+
+<details><summary>See feature images</summary>
+
+![Footer](media/readme-footer.png)
+</details> 
+
+### Sign up / Register
+- Allow users to register an account if they do not have one. 
+
+<details><summary>See feature image</summary>
+
+![Signup](media/readme-register.png)
+</details>
+
+### Sign In
+- Shoppers can sign in to their account when they want to checkout.  
+
+<details><summary>See feature images</summary>
+
+![Signin](media/readme-signin.png)
+</details>
+
+### Sign Out
+- Allows the user to securely sign out.
+- Ask users if they are sure they want to sign out.  
+
+<details><summary>See feature image</summary>
+
+![Sign out](media/readme-signout.png)
+</details> 
+
+### Shop
+- Allows the user to view the listed products in the shop.  
+- Shoppers can view different types of books.
+
+<details><summary>See feature image</summary>
+
+![Shop](media/readme-shop.png)
+![Shop](media/readme-shop-list.png)
+</details> 
+
+### product Detail
+- Allows the user to view the product details.  
+- Users can add to the basket on the product detail page.
+
+<details><summary>See feature image</summary>
+
+![product Detail](media/readme-detail.png)
+</details>  
+
+### Search
+- Allows the user to search for products.  
+
+<details><summary>See feature image</summary>
+
+![Search](media/readme-search-bar.png)
+![Search](media/readme-search-results.png)
+</details> 
+
+### Basket
+- Allows the user to view the basket with their items and view the total costs.
+- Pops up as items are added and removed.  
+
+<details><summary>See feature image</summary>
+
+![Basket](media/readme-basket.png)
+</details> 
+
+### Checkout
+- Allows the user to purchase items in their basket.  
+
+<details><summary>See feature image</summary>
+
+![Checkout](media/readme-checkout.png)
+</details> 
+
+### Stripe
+- Allow the user to use stripe for card payments.  
+
+<details><summary>See feature image</summary>
+
+![Stripe](media/readme-stripe.png)
+</details> 
+
+## Profile
+- Allows the user to update their information and see their order history.  
+- Shoppers can also view their order history details.
+
+<details><summary>See feature image</summary>
+
+![Profile1](media/readme-profile-1.png)
+![Profile2](media/readme-profile-2.png)
+![Profile3](media/readme-profile-3.png)
+</details>  
+
+## Admin Panel
+- Allows admin to manage the products and employees at this store.
+
+<details><summary>See feature image</summary>
+
+![Admin panel](media/readme-admin.png)
+</details> 
+
+## Edit product
+
+- Allows admin to edit the products including updating the product information and deleting the existing product.
+- Also the alert box will show the admin which product is editing at the moment.
+
+<details><summary>See feature image</summary>
+
+![Edit product](media/readme-product-list.png)
+![Edit product](media/readme-product-update.png)
+</details> 
+
+### Add Product
+- Allow the Admin to add new products.  
+- Admin can know the product has been added successfully.
+
+<details><summary>See feature image</summary>
+
+![Add Product](media/readme-product-add.png)
+![Add Product](media/readme-product-add-message.png)
+</details> 
+
+### Delete Product
+- Allow the user to delete products, including a confirmation prompt before deletion.  
+
+<details><summary>See feature image</summary>
+
+![Delete Product](media/readme-product-delete.png)
+</details> 
+
+### Employee Management
+- Allow the store owner to view the current employees' information. 
+
+<details><summary>See feature image</summary>
+
+![Employee list](media/readme-staff-list.png)
+</details> 
+
+### Update Employee
+- Allow the store owner to update the current employees' information. 
+
+<details><summary>See feature image</summary>
+
+![Update Employee1](media/readme-staff-update-1.png)
+![Update Employee2](media/readme-staff-update-2.png)
+</details> 
+
+### Add Employee
+- Allow the store owner to add the new employees' information. 
+
+<details><summary>See feature image</summary>
+
+![Add Employee1](media/readme-staff-add-1.png)
+![Add Employee2](media/readme-staff-add-2.png)
+</details> 
+
+### Order Management
+- Allow the admin to view the total orders coming into the store and payment status.
+
+<details><summary>See feature image</summary>
+
+![Order management](media/readme-admin-order.png)
+</details> 
+
+### Pagination
+- Ensures the page is kept tidy  
+  
+<details><summary>See feature images</summary>
+
+![Pagination](media/readme-pagination.png)
+</details>
+
+##### Back to [top](#table-of-contents)<hr>
+
+
+
+
+
+
+
 
 
 
